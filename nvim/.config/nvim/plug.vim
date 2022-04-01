@@ -3,6 +3,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
 Plug 'tami5/lspsaga.nvim', { 'branch': 'main' }
+" send errors to quickfix and local list
+Plug 'folke/trouble.nvim', { 'branch': 'main' }
 
 " autocompletion
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -90,6 +92,7 @@ require("telescope").load_extension("emoji")
 require('colorizer').setup()
 require('nvim-tree').setup {}
 require('nvim-autopairs').setup{}
+require('trouble').setup{}
 require('zk').setup{
 	picker = "telescope"
 }

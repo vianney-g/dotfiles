@@ -50,7 +50,7 @@ nnoremap <leader><leader>n :ZkNotes<CR>
 " git stuff
 nmap <leader>gs :G<CR>
 noremap <leader>gb :Git blame<cr>
-nnoremap <leader>gs :Telescope git_status<CR>
+nnoremap <leader>gS :Telescope git_status<CR>
 nnoremap <leader>gc :Telescope git_bcommits<CR>
 
 
@@ -68,6 +68,9 @@ nnoremap <leader>u :Lspsaga lsp_finder<CR>
 nnoremap <silent> <A-t> :Lspsaga open_floaterm<CR>
 tnoremap <silent> <A-t> <C-\><C-n>:Lspsaga close_floaterm<CR>
 
+"Trouble list
+nnoremap <leader>x :TroubleToggle document_diagnostics<CR>
+nnoremap <leader>X :TroubleToggle workspace_diagnostics<CR>
 set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>": "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>": "\<S-Tab>"
