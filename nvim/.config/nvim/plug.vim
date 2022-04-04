@@ -17,9 +17,10 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " look & feel
 Plug 'hoob3rt/lualine.nvim'
 "    theme
+Plug 'morhetz/gruvbox'
 "Plug 'rktjmp/lush.nvim', {'branch': 'main'}
 "Plug 'rafamadriz/neon', {'branch': 'main'}
-Plug 'arcticicestudio/nord-vim', {'branch': 'master'}
+" Plug 'arcticicestudio/nord-vim', {'branch': 'master'}
 
 "     background for hexa colors
 Plug 'norcalli/nvim-colorizer.lua'

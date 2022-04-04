@@ -72,7 +72,7 @@ export EDITOR="$HOME/bin/nvim"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv virtualenvwrapper fzf kubectl calc colorize python rust shrink-path fzf-tab tmux)
+plugins=(git virtualenv virtualenvwrapper fzf kubectl calc colorize python rust shrink-path fzf-tab tmux z)
 ZSH_COLORIZE_STYLE="monokai"
 
 source $ZSH/oh-my-zsh.sh

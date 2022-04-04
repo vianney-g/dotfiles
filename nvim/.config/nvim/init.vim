@@ -9,21 +9,18 @@ runtime ./plug.vim
 
 " theme
 set background=dark
-let g:nord_cursor_line_number_background = 1
-let g:nord_italic = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
+let g:gruvbox_italic=1
+let g:gruvbox_transparent_bg=1
+let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_number_column='aqua'
+" let g:gruvbox_vert_split='orange'
+let g:gruvbox_improved_strings=1
+let g:gruvbox_improved_warnings=1
 
-augroup nord-themes-overrides:
-	autocmd!
-	" Make comments a little more visible as I can't see them
-	  autocmd ColorScheme nord highlight Comment ctermfg=14 guifg=#AAAAFF
-augroup END
-
-colorscheme nord
+colorscheme gruvbox
 
 " line number and highlight
-set relativenumber
+set number relativenumber
 set cursorline
 
 " allow buffers to be hidden and not saved
