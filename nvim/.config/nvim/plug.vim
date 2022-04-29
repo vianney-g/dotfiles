@@ -49,8 +49,9 @@ Plug 'xiyaowong/telescope-emoji.nvim'
 
 " editing
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
-Plug 'b3nj5m1n/kommentary', {'branch': 'main' }
+" Plug 'b3nj5m1n/kommentary', {'branch': 'main' }
 Plug 'phaazon/hop.nvim'
+Plug 'numToStr/Comment.nvim'
 
 " tests suite
 Plug 'roxma/nvim-yarp'
@@ -91,6 +92,7 @@ require('lspsaga').init_lsp_saga {
 require('coq')
 require("telescope").load_extension("emoji")
 require('colorizer').setup()
+require('Comment').setup()
 require('nvim-tree').setup {}
 require('nvim-autopairs').setup{}
 require('trouble').setup{}
@@ -110,7 +112,7 @@ vim.api.nvim_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspac
 vim.api.nvim_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader><leader>e', '<cmd>:NvimTreeToggle<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>:NvimTreeToggle<CR>', opts)
 
 -- active lsp servers
 
@@ -346,33 +348,43 @@ if (not status) then return end
 	-- Treesitter objects
 	require'nvim-treesitter.configs'.setup {
 		textobjects = {
-			select = {
 			enable = true,
+			select = {
+				enable = true,
 
-			-- Automatically jump forward to textobj, similar to targets.vim 
-			lookahead = true,
+				-- Automatically jump forward to textobj, similar to targets.vim 
+				lookahead = true,
 
-			keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = "@class.inner",
-				["ab"] = "@block.outer",
-				["ib"] = "@block.inner",
+				keymaps = {
+					-- You can use the capture groups defined in textobjects.scm
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ac"] = "@class.outer",
+					["ic"] = "@class.inner",
+					["ab"] = "@block.outer",
+					["ib"] = "@block.inner",
+					},
+			},
+			swap = {
+				enable = true,
+				swap_next = {
+					["<leader>o"] = "@parameter.inner",
 				},
-			},
-		swap = {
-		enable = true,
-		swap_next = {
-			["<leader>o"] = "@parameter.inner",
-			},
-		swap_previous = {
-			["<leader>O"] = "@parameter.inner",
-			},
+				swap_previous = {
+					["<leader>O"] = "@parameter.inner",
+				},
 		},
-	},
-
+		},
+		highlight = { enable = true },
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "gnn",
+				node_incremental = "grn",
+				scope_incremental = "grc",
+				node_decremental = "grm",
+			}
+		},
 }
 
 EOF

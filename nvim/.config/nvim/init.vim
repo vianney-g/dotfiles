@@ -14,7 +14,7 @@ let g:gruvbox_transparent_bg=1
 let g:gruvbox_contrast_dark='hard'
 " let g:gruvbox_number_column='aqua'
 " let g:gruvbox_vert_split='orange'
-let g:gruvbox_improved_strings=1
+" let g:gruvbox_improved_strings=1
 let g:gruvbox_improved_warnings=1
 
 colorscheme gruvbox
@@ -105,6 +105,9 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 " Easy buffer navigation
 nmap <leader>; :bnext<CR>
+" Easy line move
+nnoremap <C-M-j> :m .+1<CR>
+nnoremap <C-M-k> :m .-2<CR>
 
 " Execute command in tmux
 map <leader>pp :VimuxPromptCommand<CR>
@@ -115,7 +118,7 @@ let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-l> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 
 " Abbreviations
