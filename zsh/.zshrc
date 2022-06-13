@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/snap/bin:$HOME/.cargo/bin:/usr/lib/dart/bin:$PATH
+# export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -18,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER=`whoami`
 FZF_BASE="$HOME/.fzf"
-export EDITOR="$HOME/bin/nvim"
+export EDITOR="nvim"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +72,7 @@ export EDITOR="$HOME/bin/nvim"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv virtualenvwrapper fzf kubectl calc colorize python rust shrink-path fzf-tab tmux z)
+plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux z)
 ZSH_COLORIZE_STYLE="monokai"
 
 source $ZSH/oh-my-zsh.sh
@@ -103,29 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-function pod_test_id {
-	kubectl get pod -n core -l 'role=http,release=canary'  -o jsonpath='{.items[0].metadata.name}'
-}
-
-function pod_test {
-	local arg context nb usage
-	context=prod_core
-
-	usage="-s: use staging (preprod) env. Default is prod.\n"
-	usage+="-h: print this help message and exit.\n"
-
-	while getopts 'sh' arg
-	do
-		case $arg in
-			s) context=preprod_core;;
-			h) echo $usage && return 0;;
-			*) echo $usage && return 1
-		esac
-	done
-
-	kubectl config use-context $context
-	kubectl exec -n core -it `pod_test_id` -c core -- /bin/bash
-}
 
 function csv {
 	local delimiter file usage
@@ -155,50 +132,14 @@ function v3_feed {
 	curl "http://renderer.core.prod.oxa.internal.lgw.io/v3/catalog/render?feed_id=$feed&output_format=json" | python -m json.tool;
 }
 
-function ctlg_history {
-	local ctlg source_dir usage
-	source_dir=archive
-
-	usage="Download source catalog known history\n"
-	usage+="ctlg_history CTLG_ID\n"
-	usage+="-x: download errors files\n"
-	usage+="-h: print this help message and exit\n"
-
-	ctlg=$1
-
-	while getopts 'x:h' arg
-	do
-		case $arg in
-			x) source_dir=${OPTARG};;
-			h) echo $usage && return 0;;
-			*) echo $usage && return 1
-		esac
-	done
-
-	shift $((OPTIND-1))
-
-	save_to=`mktemp -d`
-	ctlg_dir=http://internal-httpnas.core.prod.oxa.internal.lgw.io/indexer/${source_dir}/${ctlg}/
-
-	echo downloading from $ctlg_dir...
-
-	curl -L ${ctlg_dir} \
-		| grep ".gz" | cut -d'"' -f2 \
-		| xargs -P16 -i'%' wget "http://internal-httpnas.core.prod.oxa.internal.lgw.io/indexer/${source_dir}/${ctlg}/%" -O ${save_to}/% -q
-
-	echo unzipping..
-	gunzip -r ${save_to}
-	cd ${save_to}
-}
-
 [ -f .aliases ] && source .aliases
 
 alias gcf!="ga . && gc! --no-edit && gpf"
 alias e=$EDITOR
 alias v=view
-alias lq=ls # because fuck
 alias -g JSON="| python -m json.tool"
-
+alias ls="exa --icons"
+alias tree="exa --tree --icons"
 
 setopt prompt_subst
 
@@ -216,7 +157,5 @@ fi
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_DEFAULT_SESSION_NAME=work
 
-# brew
-
-export TERM=xterm-256color-italic
-export ZK_NOTEBOOK_DIR=~/notes
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export ZK_NOTEBOOK_DIR="$HOME/notes"

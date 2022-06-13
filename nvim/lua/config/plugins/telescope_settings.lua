@@ -1,0 +1,7 @@
+vim.keymap.set("n", "<Leader>tt", "<Cmd>Telescope find_files<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tg", "<Cmd>Telescope live_grep<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tb", "<Cmd>Telescope buffers<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tr", "<Cmd>Telescope registers<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tm", "<Cmd>Telescope marks<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>td", "<Cmd>Telescope diagnostics<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tu", "<Cmd>Telescope lsp_references<CR>", { silent = true })
