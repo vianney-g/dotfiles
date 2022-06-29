@@ -140,6 +140,9 @@ alias v=view
 alias -g JSON="| python -m json.tool"
 alias ls="exa --icons"
 alias tree="exa --tree --icons"
+alias less=batcat
+alias a="source env/bin/activate"
+alias main="cd $HOME/alma/main/ && a"
 
 setopt prompt_subst
 
@@ -159,3 +162,9 @@ export ZSH_TMUX_DEFAULT_SESSION_NAME=work
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export ZK_NOTEBOOK_DIR="$HOME/notes"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
