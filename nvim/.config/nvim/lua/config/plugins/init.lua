@@ -1,19 +1,21 @@
 return require("packer").startup {
 	function()
-		local p = function (name)
+		local p = function(name)
 			return require(
-			string.format("config.plugins.%s", name)
+				string.format("config.plugins.%s", name)
 			)
 		end
-		-- use { "lewis6991/impatient.nvim" }
+		use { "lewis6991/impatient.nvim" }
 		use { "wbthomason/packer.nvim" }
 		use { "ellisonleao/gruvbox.nvim" }
 		use { "kyazdani42/nvim-web-devicons" }
 		use {
 			"williamboman/nvim-lsp-installer",
+			-- a zk note helper
+			'mickael-menu/zk-nvim',
 			{
 				"neovim/nvim-lspconfig",
-				config = p 'lsp' 
+				config = p 'lsp'
 				-- require("lspconfig").pyright.setup{}
 			}
 		}
@@ -48,7 +50,7 @@ return require("packer").startup {
 		-- colorize hexa colors
 		use {
 			"norcalli/nvim-colorizer.lua",
-			config = require"colorizer".setup()
+			config = require "colorizer".setup()
 		}
 		-- add surround operations
 		use {
@@ -56,18 +58,27 @@ return require("packer").startup {
 		}
 		-- file explorer
 		use {
-		    'kyazdani42/nvim-tree.lua',
-		    requires = {
-		      'kyazdani42/nvim-web-devicons',
-		    },
-                    config = require('nvim-tree').setup {}
+			'kyazdani42/nvim-tree.lua',
+			requires = {
+				'kyazdani42/nvim-web-devicons',
+			},
+			config = require('nvim-tree').setup {}
 		}
 		-- telescope stuff
 		use {
 			'nvim-telescope/telescope.nvim',
-			requires = { {'nvim-lua/plenary.nvim'} },
+			requires = { { 'nvim-lua/plenary.nvim' } },
 			config = p "telescope_settings"
 		}
+		-- git
+		use {
+			"tpope/vim-fugitive"
+		}
+		use {
+			"lewis6991/gitsigns.nvim",
+			config = p "gitsigns_settings"
+		}
+
 	end,
 	config = {
 		compile_path = vim.fn.stdpath "config" .. "/lua/config/plugins/packer_compiled.lua",

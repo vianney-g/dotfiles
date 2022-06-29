@@ -3,6 +3,7 @@ local on_attach = function(_, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
+
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
@@ -22,18 +23,34 @@ local on_attach = function(_, bufnr)
 	buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 	buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 	buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-	buf_set_keymap('n', '<leader>er', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-	buf_set_keymap('n', '<leader>eR', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-	buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+	buf_set_keymap('n', '<leader>er', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+	buf_set_keymap('n', '<leader>es', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+	buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
--- Add the server that troubles you here
-
-local cmd = { 'pyright-langserver', '--stdio' }
 require("lspconfig").pyright.setup {
-	cmd = cmd,
+	cmd = { 'pyright-langserver', '--stdio' },
 	on_attach = on_attach,
 }
+
+require("zk").setup {
+	picker = "telescope",
+}
+
+require "lspconfig".tsserver.setup {
+	on_attach = on_attach
+}
+require("lspconfig").efm.setup {
+	init_options = { documentFormatting = true },
+	settings = {
+		languages = {
+			python = {
+				{ formatCommand = "black --quiet -", formatStdin = true }
+			}
+		}
+	}
+}
+
 require("lspconfig").sumneko_lua.setup {
 	on_attach = on_attach
 }
