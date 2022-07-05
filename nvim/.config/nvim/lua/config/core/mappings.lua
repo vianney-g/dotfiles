@@ -41,3 +41,6 @@ vim.keymap.set("n", "<Leader>q", "<Cmd>TroubleToggle document_diagnostics<CR>", 
 vim.keymap.set("n", "<Leader>Q", "<Cmd>TroubleToggle<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>u", "<Cmd>TroubleToggle lsp_references<CR>", { silent = true })
 
+-- quick fixes window
+vim.keymap.set("n", "<Leader><Leader>", "<Cmd>HopWord<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>l", "<Cmd>HopLine<CR>", { silent = true })

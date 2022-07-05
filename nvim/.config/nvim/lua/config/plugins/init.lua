@@ -70,6 +70,9 @@ return require("packer").startup {
 			requires = { { 'nvim-lua/plenary.nvim' } },
 			config = p "telescope_settings"
 		}
+		use {
+			"nvim-telescope/telescope-symbols.nvim"
+		}
 		-- git
 		use {
 			"tpope/vim-fugitive"
@@ -78,7 +81,30 @@ return require("packer").startup {
 			"lewis6991/gitsigns.nvim",
 			config = p "gitsigns_settings"
 		}
-
+		use {
+			"pwntester/octo.nvim",
+			requires = {
+				'nvim-lua/plenary.nvim',
+				'nvim-telescope/telescope.nvim',
+				'kyazdani42/nvim-web-devicons',
+			},
+			config = require "octo".setup {}
+		}
+		-- quick motion
+		use {
+			"phaazon/hop.nvim",
+			config = require "hop".setup {}
+		}
+		-- quick comment
+		use {
+			"numToStr/Comment.nvim",
+			config = require "Comment".setup {}
+		}
+		-- quick pair
+		use {
+			"windwp/nvim-autopairs",
+			config = require "nvim-autopairs".setup {}
+		}
 	end,
 	config = {
 		compile_path = vim.fn.stdpath "config" .. "/lua/config/plugins/packer_compiled.lua",

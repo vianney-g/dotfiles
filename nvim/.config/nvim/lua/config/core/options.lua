@@ -14,3 +14,6 @@ vim.opt.title = true
 
 -- enable 24-bit RGB colors
 vim.opt.termguicolors = true
+
+-- global statusline
+vim.opt.laststatus = 3
