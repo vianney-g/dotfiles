@@ -12,8 +12,8 @@ local on_attach = function(_, bufnr)
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
-	buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 	buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+	buf_set_keymap('n', 'gD', '<Cmd>vsplit | lua vim.lsp.buf.definition()<CR>', opts)
 	buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 	buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 	buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -40,6 +40,7 @@ require("zk").setup {
 require "lspconfig".tsserver.setup {
 	on_attach = on_attach
 }
+
 require("lspconfig").efm.setup {
 	init_options = { documentFormatting = true },
 	settings = {
