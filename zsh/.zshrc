@@ -19,6 +19,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER=`whoami`
 FZF_BASE="$HOME/.fzf"
 export EDITOR="nvim"
+export TERM="tmux-256color"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
