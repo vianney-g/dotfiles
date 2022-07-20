@@ -158,8 +158,8 @@ if type rg &> /dev/null; then
     export FZF_DEFAULT_OPTS="-m"
 fi
 
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_DEFAULT_SESSION_NAME=work
+# export ZSH_TMUX_AUTOSTART=true
+# export ZSH_TMUX_DEFAULT_SESSION_NAME=work
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export ZK_NOTEBOOK_DIR="$HOME/notes"
@@ -169,3 +169,4 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+pfetch
