@@ -2,7 +2,7 @@
 
 SNIPS=${HOME}/dotfiles/snippets
 
-FILE=`ls ${SNIPS} | /usr/bin/rofi -dmenu`
+FILE=`ls ${SNIPS} | /usr/bin/rofi -dmenu -p 'snippet'`
 
 if [ -f ${SNIPS}/${FILE} ]; then
   DATA=$([ -x "${SNIPS}/${FILE}" ] && bash "${SNIPS}/${FILE}" || head --bytes=-1 ${SNIPS}/${FILE})
