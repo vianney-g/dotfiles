@@ -1,2 +1,2 @@
 #!/bin/sh
-tmux a -t work || tmux new -s work
+tmux new -A -s work
