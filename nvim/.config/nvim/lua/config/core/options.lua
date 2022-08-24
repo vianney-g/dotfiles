@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 -- cursor
 vim.opt.cursorline = true
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- allow buffers to be hidden and not saved
 vim.opt.hidden = true

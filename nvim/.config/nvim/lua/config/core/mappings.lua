@@ -15,7 +15,7 @@ vim.keymap.set("v", "<C-Down>", [[@='"zx"zp`[V`]'<CR>]], { silent = true })
 vim.keymap.set("n", "<Leader>ee", "<Cmd>NvimTreeFindFileToggle<CR>", { noremap = true })
 
 -- notes management
-local opts = { noremap=true, silent=false }
+local opts = { noremap = true, silent = false }
 -- Create a new note after asking for its title.
 vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>zd", "<Cmd>ZkNew daily<CR>", opts)
