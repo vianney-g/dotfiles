@@ -126,13 +126,6 @@ function csv {
 	cat $1 | sed -e 's/$delimiter$delimiter/$delimiter $delimiter/g' | column -s$delimiter -t | less -#5 -N -S
 }
 
-function v3_feed {
-	local feed
-	feed=$1
-	echo "Fetching feed $feed...\n"
-	curl "http://renderer.core.prod.oxa.internal.lgw.io/v3/catalog/render?feed_id=$feed&output_format=json" | python -m json.tool;
-}
-
 [ -f .aliases ] && source .aliases
 
 alias gcf!="ga . && gc! --no-edit && gpf"
@@ -144,6 +137,8 @@ alias tree="exa --tree --icons"
 alias less=batcat
 alias a="source env/bin/activate"
 alias main="cd $HOME/alma/main/ && a"
+
+export RIPGREP_CONFIG_PATH=$HOME/.rg
 
 setopt prompt_subst
 
