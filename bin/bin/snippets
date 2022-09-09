@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# SYSTEM WIDE SNIPPETS!!!
+
+# To make a snippet, create a file in ~/dotfile/snippets
+# If the file is executable, it is executed and the result is pasted in the app you presently are.
+# Otherwise content of file is pasted in the app you presently are.
+
 SNIPS=${HOME}/dotfiles/snippets
 FILE=$(ls ${SNIPS} | /usr/bin/rofi -dmenu -p 'snippets')
 SNIPPET="${SNIPS}/${FILE}"
