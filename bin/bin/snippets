@@ -1,12 +1,24 @@
 #!/bin/sh
 
 SNIPS=${HOME}/dotfiles/snippets
+FILE=$(ls ${SNIPS} | /usr/bin/rofi -dmenu -p 'snippets')
+SNIPPET="${SNIPS}/${FILE}"
 
-FILE=`ls ${SNIPS} | /usr/bin/rofi -dmenu -p 'snippet'`
+execute_file() {
+	bash "${SNIPPET}"
+}
 
-if [ -f ${SNIPS}/${FILE} ]; then
-  DATA=$([ -x "${SNIPS}/${FILE}" ] && bash "${SNIPS}/${FILE}" || head --bytes=-1 ${SNIPS}/${FILE})
-  printf "$DATA" | xsel -p -i 
-  printf "$DATA" | xsel -b -i 
-  xdotool key shift+Insert
+read_file() {
+	if [ 1 -eq $(wc -l <${SNIPPET}) ]; then
+		head --bytes=-1 ${SNIPPET}
+	else
+		cat ${SNIPPET} | /usr/bin/rofi -dmenu -p 'snippet'
+	fi
+}
+
+if [ -f ${SNIPPET} ]; then
+	DATA=$([ -x "${SNIPPET}" ] && execute_file || read_file)
+	printf "$DATA" | xsel -p -i
+	printf "$DATA" | xsel -b -i
+	xdotool key shift+Insert
 fi
