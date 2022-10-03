@@ -6,7 +6,10 @@ return require("packer").startup({
 
 		use({ "lewis6991/impatient.nvim" })
 		use({ "wbthomason/packer.nvim" })
-		use({ "ellisonleao/gruvbox.nvim" })
+		-- use({ "ellisonleao/gruvbox.nvim" })
+		-- use({ "wojciechkepka/vim-github-dark" })
+		-- use({ "rose-pine/neovim" })
+		use({ "rafamadriz/neon" })
 		use({ "kyazdani42/nvim-web-devicons" })
 		-- a zk note helper
 		use({ "mickael-menu/zk-nvim" })
@@ -84,7 +87,15 @@ return require("packer").startup({
 		-- telescope stuff
 		use({
 			"nvim-telescope/telescope.nvim",
-			requires = { { "nvim-lua/plenary.nvim" } },
+			requires = {
+				{ "nvim-lua/plenary.nvim" },
+				{ "nvim-telescope/telescope-live-grep-args.nvim" },
+				{
+					"nvim-telescope/telescope-frecency.nvim",
+					requires = { "tami5/sqlite.lua" },
+				},
+			},
+
 			config = p("telescope_settings"),
 		})
 		use({
@@ -133,8 +144,17 @@ return require("packer").startup({
 			},
 			config = p("tests_settings"),
 		})
+		-- markdown
+		use({
+			"iamcco/markdown-preview.nvim",
+			run = function()
+				vim.fn["mkdp#util#install"]()
+			end,
+		})
 		-- jupyter notebooks
-		use({ "untitled-ai/jupyter_ascending.vim" })
+		-- use({ "untitled-ai/jupyter_ascending.vim" })
+		-- outline lsp view
+		use({ "simrat39/symbols-outline.nvim", config = require("symbols-outline").setup() })
 	end,
 	config = {
 		compile_path = vim.fn.stdpath("config") .. "/lua/config/plugins/packer_compiled.lua",

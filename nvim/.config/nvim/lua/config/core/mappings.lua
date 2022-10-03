@@ -5,6 +5,12 @@ vim.keymap.set("n", "<Leader>n", "<Cmd>bn<CR>", { silent = true })
 vim.keymap.set("n", "n", "nzz", { noremap = false, silent = true })
 vim.keymap.set("n", "N", "Nzz", { noremap = false, silent = true })
 
+-- center paging
+vim.keymap.set("n", "<C-f>", "<C-f>zz", { noremap = false, silent = true })
+vim.keymap.set("n", "<C-b>", "<C-b>zz", { noremap = false, silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = false, silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = false, silent = true })
+
 -- bubble line(s)
 vim.keymap.set("n", "<C-Up>", "<Cmd>m .-2<CR>", { noremap = false, silent = true })
 vim.keymap.set("n", "<C-Down>", "<Cmd>m .+1<CR>", { noremap = false, silent = true })
@@ -44,3 +50,6 @@ vim.keymap.set("n", "<Leader>u", "<Cmd>TroubleToggle lsp_references<CR>", { sile
 -- quick motion
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>HopWord<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>l", "<Cmd>HopLine<CR>", { silent = true })
+
+-- symbols
+vim.keymap.set("n", "<Leader>v", "<Cmd>SymbolsOutline<CR>", { silent = true })

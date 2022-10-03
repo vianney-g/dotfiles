@@ -38,6 +38,33 @@ require("lspconfig").tsserver.setup({
 	on_attach = on_attach,
 })
 
+require("lspconfig").html.setup({
+	on_attach = on_attach,
+})
+
+require("lspconfig").jsonls.setup({
+	on_attach = on_attach,
+})
+
+require("lspconfig").cssls.setup({
+	on_attach = on_attach,
+})
+
 require("lspconfig").sumneko_lua.setup({
+	on_attach = on_attach,
+})
+
+require("lspconfig").arduino_language_server.setup({
+	cmd = {
+		"arduino-language-server",
+		"-cli-config",
+		"~/.arduino15/~/.arduino15/arduino-cli.yaml",
+		"-fqbn",
+		"arduine:avr:uno",
+		"-cli",
+		"arduino-cli",
+		"-clangd",
+		"clangd",
+	},
 	on_attach = on_attach,
 })

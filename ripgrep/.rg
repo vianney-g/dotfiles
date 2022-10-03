@@ -4,4 +4,4 @@ web:*.{html,css,js}*
 
 # Add "test" type.
 --type-add
-test:test_*
+test:{test*,*test.py}

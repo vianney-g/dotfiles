@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 1
 
   # Startup Mode (changes require restart)
   #
@@ -150,37 +150,99 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Hyper)
-# Colors (Gruvbox dark)
-colors:
-  # Default colors
+
+# Color theme ported from iTerm 2: Smoooooth
+colors:  
   primary:
-    background: '0x1d2021'
-    # medium constrast: background: '0x282828'
-    # soft contrast: background = '0x32302f'
-    foreground: '0xfbf1c7'
-
-  # Normal colors
+    foreground: '0xdbdbdb'
+    background: '0x14191e'
+  cursor:
+    text: '0x000000'
+    cursor: '0xfefffe'
+  selection:
+    text: '0x000000'
+    background: '0xb3d7ff'
   normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
-
-  # Bright colors
+    black:   '0x14191e'
+    red:     '0xb43c29'
+    green:   '0x00c200'
+    yellow:  '0xc7c400'
+    blue:    '0x2743c7'
+    magenta: '0xbf3fbd'
+    cyan:    '0x00c5c7'
+    white:   '0xc7c7c7'
   bright:
-    black:   '0x928374'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xebdbb2'
+    black:   '0x676767'
+    red:     '0xdc7974'
+    green:   '0x57e690'
+    yellow:  '0xece100'
+    blue:    '0xa6aaf1'
+    magenta: '0xe07de0'
+    cyan:    '0x5ffdff'
+    white:   '0xfeffff'
+
+# Colors (PaperColor - Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1c1c1c'
+#     foreground: '0x808080'
+#   cursor:
+#     text: '0x1c1c1c'
+#     cursor: '0x808080'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x1c1c1c'
+#     red:     '0xaf005f'
+#     green:   '0x5faf00'
+#     yellow:  '0xd7af5f'
+#     blue:    '0x5fafd7'
+#     magenta: '0x808080'
+#     cyan:    '0xd7875f'
+#     white:   '0xd0d0d0'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x585858'
+#     red:     '0x5faf5f'
+#     green:   '0xafd700'
+#     yellow:  '0xaf87d7'
+#     blue:    '0xffaf00'
+#     magenta: '0xffaf00'
+#     cyan:    '0x00afaf'
+#     white:   '0x5f8787'
+
+# Colors (Gruvbox dark)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1d2021'
+#     # medium constrast: background: '0x282828'
+#     # soft contrast: background = '0x32302f'
+#     foreground: '0xfbf1c7'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x282828'
+#     red:     '0xcc241d'
+#     green:   '0x98971a'
+#     yellow:  '0xd79921'
+#     blue:    '0x458588'
+#     magenta: '0xb16286'
+#     cyan:    '0x689d6a'
+#     white:   '0xa89984'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x928374'
+#     red:     '0xfb4934'
+#     green:   '0xb8bb26'
+#     yellow:  '0xfabd2f'
+#     blue:    '0x83a598'
+#     magenta: '0xd3869b'
+#     cyan:    '0x8ec07c'
+#     white:   '0xebdbb2'
 
 # colors:
 #   # Default colors
