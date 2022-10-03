@@ -77,6 +77,7 @@ plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmu
 ZSH_COLORIZE_STYLE="monokai"
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.arduino-comp.sh
 
 # User configuration
 
@@ -137,6 +138,7 @@ alias tree="exa --tree --icons"
 alias less=batcat
 alias a="source env/bin/activate"
 alias main="cd $HOME/alma/main/ && a"
+alias say="espeak -v us-mbrola-1"
 
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
@@ -167,5 +169,9 @@ if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/g
 pfetch
 # chafa Images/Papiers\ peints/`/bin/ls Images/Papiers\ peints | shuf | head -1`
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function prco() {
+	# checkout pr
+	gh pr list --json number,title,headRefName,author --limit 500 | pr_format.py | fzf | cut -f1 -d" " | xargs gh pr checkout
+}
