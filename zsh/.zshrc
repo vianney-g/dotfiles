@@ -1,4 +1,6 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+autoload -U compinit
+compinit -i
+
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -170,6 +172,7 @@ pfetch
 # chafa Images/Papiers\ peints/`/bin/ls Images/Papiers\ peints | shuf | head -1`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 function prco() {
 	# checkout pr
