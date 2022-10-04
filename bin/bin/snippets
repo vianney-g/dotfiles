@@ -7,7 +7,7 @@
 # Otherwise content of file is pasted in the app you presently are.
 
 SNIPS=${HOME}/dotfiles/snippets
-FILE=$(find ${SNIPS} -maxdepth 1 -type f -exec basename '{}' \; | /usr/bin/rofi -dmenu -p 'snippets')
+FILE=$(find ${SNIPS} -maxdepth 1 -type f -exec basename '{}' \; | /usr/bin/rofi -dmenu -p 'snippets' -i)
 SNIPPET="${SNIPS}/${FILE}"
 
 execute_file() {

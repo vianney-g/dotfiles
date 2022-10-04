@@ -7,4 +7,4 @@
 # Otherwise content of file is pasted in the app you presently are.
 
 EMOJIS=${HOME}/dotfiles/snippets/assets/emojis
-/usr/bin/rofi -dmenu -p 'emojis' -input $EMOJIS | cut -d" " -f1
+/usr/bin/rofi -dmenu -p 'emojis' -i -input $EMOJIS | cut -d" " -f1
