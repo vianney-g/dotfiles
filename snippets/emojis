@@ -1,2 +1,10 @@
-😀
-🤣
+#!/bin/sh
+
+# emoji selection !!!
+
+# To make a snippet, create a file in ~/dotfile/snippets
+# If the file is executable, it is executed and the result is pasted in the app you presently are.
+# Otherwise content of file is pasted in the app you presently are.
+
+EMOJIS=${HOME}/dotfiles/snippets/assets/emojis
+/usr/bin/rofi -dmenu -p 'emojis' -input $EMOJIS | cut -d" " -f1

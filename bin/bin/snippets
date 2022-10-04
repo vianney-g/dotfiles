@@ -7,7 +7,7 @@
 # Otherwise content of file is pasted in the app you presently are.
 
 SNIPS=${HOME}/dotfiles/snippets
-FILE=$(ls ${SNIPS} | /usr/bin/rofi -dmenu -p 'snippets')
+FILE=$(find ${SNIPS} -maxdepth 1 -type f -exec basename '{}' \; | /usr/bin/rofi -dmenu -p 'snippets')
 SNIPPET="${SNIPS}/${FILE}"
 
 execute_file() {
@@ -15,11 +15,7 @@ execute_file() {
 }
 
 read_file() {
-	if [ 1 -eq $(wc -l <${SNIPPET}) ]; then
-		head --bytes=-1 ${SNIPPET}
-	else
-		cat ${SNIPPET} | /usr/bin/rofi -dmenu -p 'snippet'
-	fi
+	head --bytes=-1 ${SNIPPET}
 }
 
 if [ -f ${SNIPPET} ]; then
