@@ -18,3 +18,6 @@ vim.opt.termguicolors = true
 
 -- global statusline
 vim.opt.laststatus = 3
+
+-- no command line
+vim.opt.cmdheight = 0

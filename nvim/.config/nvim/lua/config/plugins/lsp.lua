@@ -1,4 +1,5 @@
 require("mason").setup({})
+local lsp = require("lspconfig")
 
 local on_attach = function(_, bufnr)
 	local function buf_set_keymap(...)
@@ -25,7 +26,11 @@ local on_attach = function(_, bufnr)
 	-- buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-require("lspconfig").pyright.setup({
+lsp.rust_analyzer.setup({
+	on_attach = on_attach,
+})
+
+lsp.pyright.setup({
 	cmd = { "pyright-langserver", "--stdio" },
 	on_attach = on_attach,
 })
@@ -34,27 +39,27 @@ require("zk").setup({
 	picker = "telescope",
 })
 
-require("lspconfig").tsserver.setup({
+lsp.tsserver.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").html.setup({
+lsp.html.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").yamlls.setup({
+lsp.yamlls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").jsonls.setup({
+lsp.jsonls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").cssls.setup({
+lsp.cssls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").sumneko_lua.setup({
+lsp.sumneko_lua.setup({
 	on_attach = on_attach,
 	settings = {
 		Lua = {
@@ -71,7 +76,7 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 
-require("lspconfig").arduino_language_server.setup({
+lsp.arduino_language_server.setup({
 	cmd = {
 		"arduino-language-server",
 		"-cli-config",
