@@ -10,6 +10,6 @@ jobs:
     - uses: gerardabello/auto-assign@v1.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        number-of-assignees: 2
+        number-of-assignees: 1
         assignee-pool: |
           vianney-g
