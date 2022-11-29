@@ -154,7 +154,7 @@ return require("packer").startup({
 		-- jupyter notebooks
 		-- use({ "untitled-ai/jupyter_ascending.vim" })
 		-- outline lsp view
-		use({ "simrat39/symbols-outline.nvim", config = require("symbols-outline").setup() })
+		-- use({ "simrat39/symbols-outline.nvim", config = require("symbols-outline").setup() })
 	end,
 	config = {
 		compile_path = vim.fn.stdpath("config") .. "/lua/config/plugins/packer_compiled.lua",

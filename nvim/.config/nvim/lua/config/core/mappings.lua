@@ -1,5 +1,7 @@
 -- buffers quick navigation
 vim.keymap.set("n", "<Leader>n", "<Cmd>bn<CR>", { silent = true })
+-- windows quick navigation
+vim.keymap.set("n", "<Leader>w", "<C-w><C-w>", { silent = true })
 
 -- center search
 vim.keymap.set("n", "n", "nzz", { noremap = false, silent = true })
@@ -20,17 +22,15 @@ vim.keymap.set("v", "<C-Down>", [[@='"zx"zp`[V`]'<CR>]], { silent = true })
 -- file explorer
 vim.keymap.set("n", "<Leader>ee", "<Cmd>NvimTreeFindFileToggle<CR>", { noremap = true })
 
--- notes management
+-- NOTES MANAGEMENT
 local opts = { noremap = true, silent = false }
 -- Create a new note after asking for its title.
 vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>zd", "<Cmd>ZkNew daily<CR>", opts)
-
 -- Open notes.
 vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
 -- Open notes associated with the selected tags.
 vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
-
 -- Search for the notes matching a given query.
 vim.api.nvim_set_keymap("n", "<leader>zf", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
 -- Search for the notes matching the current visual selection.
@@ -52,4 +52,8 @@ vim.keymap.set("n", "<Leader><Leader>", "<Cmd>HopWord<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>l", "<Cmd>HopLine<CR>", { silent = true })
 
 -- symbols
-vim.keymap.set("n", "<Leader>v", "<Cmd>SymbolsOutline<CR>", { silent = true })
+-- vim.keymap.set("n", "<Leader>v", "<Cmd>SymbolsOutline<CR>", { silent = true })
+
+-- system buffer
+vim.keymap.set("v", "<Leader>y", '"*y')
+vim.keymap.set({ "n", "v" }, "<Leader>p", '"*p')

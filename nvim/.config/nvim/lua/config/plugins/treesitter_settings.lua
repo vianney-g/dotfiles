@@ -1,10 +1,10 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
 	textobjects = {
 		enable = true,
 		select = {
 			enable = true,
 
-			-- Automatically jump forward to textobj, similar to targets.vim 
+			-- Automatically jump forward to textobj, similar to targets.vim
 			lookahead = true,
 
 			keymaps = {
@@ -28,13 +28,14 @@ require'nvim-treesitter.configs'.setup {
 		},
 	},
 	highlight = { enable = true },
+	indent = { enable = true },
 	incremental_selection = {
 		enable = true,
 		keymaps = {
-			init_selection = "gnn",
-			node_incremental = "grn",
-			scope_incremental = "grc",
-			node_decremental = "grm",
-		}
+			init_selection = "<leader>D",
+			node_incremental = "<leader>v",
+			-- scope_incremental = "<leader>D",
+			node_decremental = "<leader>d",
+		},
 	},
-}
+})

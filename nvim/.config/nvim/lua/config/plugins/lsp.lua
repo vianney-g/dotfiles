@@ -28,6 +28,7 @@ end
 require("lspconfig").pyright.setup({
 	cmd = { "pyright-langserver", "--stdio" },
 	on_attach = on_attach,
+	trace = "verbose",
 })
 
 require("zk").setup({
@@ -35,6 +36,14 @@ require("zk").setup({
 })
 
 require("lspconfig").tsserver.setup({
+	on_attach = on_attach,
+})
+
+require("lspconfig").rust_analyzer.setup({
+	on_attach = on_attach,
+})
+
+require("lspconfig").phpactor.setup({
 	on_attach = on_attach,
 })
 
@@ -54,6 +63,9 @@ require("lspconfig").cssls.setup({
 	on_attach = on_attach,
 })
 
+require("lspconfig").cucumber_language_server.setup({
+	on_attach = on_attach,
+})
 require("lspconfig").sumneko_lua.setup({
 	on_attach = on_attach,
 	settings = {

@@ -18,3 +18,5 @@ vim.opt.termguicolors = true
 
 -- global statusline
 vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
+vim.g.python3_host_prog = "~/.neovim/bin/python"

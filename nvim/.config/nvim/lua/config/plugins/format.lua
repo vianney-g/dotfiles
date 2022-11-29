@@ -25,6 +25,9 @@ require("formatter").setup({
 		yaml = {
 			M.yamlfmt,
 		},
+		rust = {
+			require("formatter.filetypes.rust").rustfmt,
+		},
 	},
 })
 
@@ -33,7 +36,7 @@ vim.keymap.set("n", "<Leader>f", "<Cmd>Format<CR>", { silent = true })
 -- autoformat on save
 vim.api.nvim_create_autocmd("BufWritePost", {
 	command = "FormatWriteLock",
-	pattern = { "*.py", "*.lua", "*.sh", "*.ts", "*.json", "*.js", "*.yaml" },
+	pattern = { "*.py", "*.lua", "*.sh", "*.ts", "*.json", "*.js", "*.yaml", "*.rs" },
 })
 
 return M
