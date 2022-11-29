@@ -148,6 +148,7 @@ setopt prompt_subst
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
 # prefer ripgrep to grep for fzf
 if type rg &> /dev/null; then
@@ -178,3 +179,5 @@ function prco() {
 	# checkout pr
 	gh pr list --json number,title,headRefName,author --limit 500 | pr_format.py | fzf | cut -f1 -d" " | xargs gh pr checkout
 }
+
+eval "$(op completion zsh)"; compdef _op op
