@@ -3,3 +3,7 @@ bin/bin/postman
 bin/bin/openapi*
 bin/bin/arduino*
 ssh*
+bin/bin/poetry
+bin/bin/validated_pr_for_release.sh
+nvim/.config/nvim/.luarc.json
+.github/workflows/assign-pr.yml
