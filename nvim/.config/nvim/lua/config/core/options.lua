@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 -- cursor
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.list = true
