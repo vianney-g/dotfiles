@@ -4,5 +4,8 @@ bin/bin/openapi*
 bin/bin/arduino*
 ssh*
 bin/bin/poetry
+bin/bin/elm
+bin/bin/ngrok
+bin/bin/shadow
 bin/bin/validated_pr_for_release.sh
 nvim/.config/nvim/.luarc.json
