@@ -177,7 +177,7 @@ pfetch
 
 function prco() {
 	# checkout pr
-	gh pr list --json number,title,headRefName,author --limit 500 | pr_format.py | fzf | cut -f1 -d" " | xargs gh pr checkout
+	gh pr list --json number,title,headRefName,author --limit 500 | jq -r '.[] | [.number, .title, .author.login, .headRefName] | @tsv' | column -ts $'\t' | fzf | cut -f1 -d" " | xargs gh pr checkout
 }
 
 eval "$(op completion zsh)"; compdef _op op
