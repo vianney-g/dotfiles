@@ -24,25 +24,7 @@ return require("packer").startup({
 			{
 				"neovim/nvim-lspconfig",
 				config = p("lsp"),
-				-- require("lspconfig").pyright.setup{}
 			},
-		})
-		use({
-			"ThePrimeagen/refactoring.nvim",
-			requires = {
-				{ "nvim-lua/plenary.nvim" },
-				{ "nvim-treesitter/nvim-treesitter" },
-			},
-			config = p("refacto"),
-		})
-		use({
-			"ray-x/lsp_signature.nvim",
-			config = require("lsp_signature").setup(),
-		})
-		use({
-			"folke/trouble.nvim",
-			config = p("trouble"),
-			requires = "kyazdani42/nvim-web-devicons",
 		})
 		-- completer
 		use({
@@ -90,10 +72,6 @@ return require("packer").startup({
 			requires = {
 				{ "nvim-lua/plenary.nvim" },
 				{ "nvim-telescope/telescope-live-grep-args.nvim" },
-				{
-					"nvim-telescope/telescope-frecency.nvim",
-					requires = { "tami5/sqlite.lua" },
-				},
 			},
 
 			config = p("telescope_settings"),
@@ -108,20 +86,6 @@ return require("packer").startup({
 		use({
 			"lewis6991/gitsigns.nvim",
 			config = p("gitsigns_settings"),
-		})
-		use({
-			"pwntester/octo.nvim",
-			requires = {
-				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope.nvim",
-				"kyazdani42/nvim-web-devicons",
-			},
-			config = require("octo").setup({}),
-		})
-		-- quick motion
-		use({
-			"phaazon/hop.nvim",
-			config = require("hop").setup({}),
 		})
 		-- quick comment
 		use({
@@ -151,10 +115,8 @@ return require("packer").startup({
 				vim.fn["mkdp#util#install"]()
 			end,
 		})
-		-- jupyter notebooks
-		-- use({ "untitled-ai/jupyter_ascending.vim" })
-		-- outline lsp view
-		-- use({ "simrat39/symbols-outline.nvim", config = require("symbols-outline").setup() })
+		-- copilot
+		use({ "github/copilot.vim" })
 	end,
 	config = {
 		compile_path = vim.fn.stdpath("config") .. "/lua/config/plugins/packer_compiled.lua",

@@ -1,4 +1,7 @@
 require("nvim-treesitter.configs").setup({
+	ensure_installed = { "help", "lua", "python", "rust" },
+	sync_install = false,
+	auto_install = false,
 	textobjects = {
 		enable = true,
 		select = {
@@ -28,7 +31,7 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 	highlight = { enable = true },
-	indent = { enable = true },
+	-- indent = { enable = true },  # does not work well with python
 	incremental_selection = {
 		enable = true,
 		keymaps = {

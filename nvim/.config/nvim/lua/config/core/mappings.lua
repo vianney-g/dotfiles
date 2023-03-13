@@ -13,6 +13,9 @@ vim.keymap.set("n", "<C-b>", "<C-b>zz", { noremap = false, silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = false, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = false, silent = true })
 
+-- create a function that extract current buffer filename
+--
+
 -- bubble line(s)
 vim.keymap.set("n", "<C-Up>", "<Cmd>m .-2<CR>", { noremap = false, silent = true })
 vim.keymap.set("n", "<C-Down>", "<Cmd>m .+1<CR>", { noremap = false, silent = true })
@@ -40,20 +43,15 @@ vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
 vim.keymap.set("n", "<Leader>gs", "<Cmd>Git!<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>gb", "<Cmd>Git blame<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>gd", "<Cmd>Gdiffsplit<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>gD", "<Cmd>Git difftool -y<CR>", { silent = true })
-
--- quick fixes window
-vim.keymap.set("n", "<Leader>q", "<Cmd>TroubleToggle document_diagnostics<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>Q", "<Cmd>TroubleToggle<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>u", "<Cmd>TroubleToggle lsp_references<CR>", { silent = true })
-
--- quick motion
-vim.keymap.set("n", "<Leader><Leader>", "<Cmd>HopWord<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>l", "<Cmd>HopLine<CR>", { silent = true })
-
--- symbols
--- vim.keymap.set("n", "<Leader>v", "<Cmd>SymbolsOutline<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>gD", "<Cmd>Gvdiffsplit!<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>gm", "<Cmd>G mergetool<CR>", { silent = true })
 
 -- system buffer
 vim.keymap.set("v", "<Leader>y", '"*y')
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"*p')
+
+-- copilot
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-L>", "<Plug>(copilot-next)", { silent = true })
+vim.api.nvim_set_keymap("i", "<C-SHIFT-L>", "<Plug>(copilot-next)", { silent = true })

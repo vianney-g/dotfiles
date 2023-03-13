@@ -1,4 +1,5 @@
 require("mason").setup({})
+local lspconfig = require("lspconfig")
 
 local on_attach = function(_, bufnr)
 	local function buf_set_keymap(...)
@@ -20,12 +21,13 @@ local on_attach = function(_, bufnr)
 	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	buf_set_keymap("n", "<leader>ra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "<leader>er", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<leader>es", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	-- buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-require("lspconfig").pyright.setup({
+lspconfig.pyright.setup({
 	cmd = { "pyright-langserver", "--stdio" },
 	on_attach = on_attach,
 	trace = "verbose",
@@ -35,38 +37,48 @@ require("zk").setup({
 	picker = "telescope",
 })
 
-require("lspconfig").tsserver.setup({
+lspconfig.tsserver.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").rust_analyzer.setup({
+lspconfig.rust_analyzer.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").phpactor.setup({
+lspconfig.phpactor.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").html.setup({
+lspconfig.html.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").yamlls.setup({
+lspconfig.yamlls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").jsonls.setup({
+lspconfig.jsonls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").cssls.setup({
+lspconfig.cssls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").cucumber_language_server.setup({
+lspconfig.sqlls.setup({
 	on_attach = on_attach,
 })
-require("lspconfig").sumneko_lua.setup({
+
+lspconfig.elmls.setup({
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern("elm.json"),
+})
+
+lspconfig.cucumber_language_server.setup({
+	on_attach = on_attach,
+})
+
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	settings = {
 		Lua = {
@@ -83,7 +95,7 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 
-require("lspconfig").arduino_language_server.setup({
+lspconfig.arduino_language_server.setup({
 	cmd = {
 		"arduino-language-server",
 		"-cli-config",
