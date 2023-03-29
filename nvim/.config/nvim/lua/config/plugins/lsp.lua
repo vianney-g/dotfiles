@@ -30,7 +30,10 @@ end
 lspconfig.pyright.setup({
 	cmd = { "pyright-langserver", "--stdio" },
 	on_attach = on_attach,
-	trace = "verbose",
+})
+
+lspconfig.ruff_lsp.setup({
+	on_attach = on_attach,
 })
 
 require("zk").setup({
