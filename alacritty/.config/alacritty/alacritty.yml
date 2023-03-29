@@ -29,9 +29,9 @@ window:
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
-  #dimensions:
-  columns: 0
-  lines: 0
+  # dimensions:
+  #   columns: 0
+  #   lines: 0
 
   # Window position (changes require restart)
   #
@@ -45,9 +45,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  x: 0
-  y: 0
+  padding:
+    x: 8
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
