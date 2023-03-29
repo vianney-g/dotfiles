@@ -1,2 +1,2 @@
 #!/bin/sh
-tmux new -A -s work
+cd ~/alma/main && tmux new -A -s main

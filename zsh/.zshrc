@@ -9,6 +9,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -75,7 +76,7 @@ export EDITOR="nvim"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux z)
+plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux)
 ZSH_COLORIZE_STYLE="monokai"
 
 source $ZSH/oh-my-zsh.sh
@@ -141,6 +142,7 @@ alias less=batcat
 alias a="source env/bin/activate"
 alias main="cd $HOME/alma/main/ && a"
 alias say="espeak -v us-mbrola-1"
+alias q=t
 
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
@@ -181,3 +183,4 @@ function prco() {
 }
 
 eval "$(op completion zsh)"; compdef _op op
+eval "$(zoxide init zsh)"
