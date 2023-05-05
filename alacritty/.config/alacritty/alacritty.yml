@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.8
+  opacity: 0.90
 
   # Startup Mode (changes require restart)
   #
@@ -97,7 +97,7 @@ window:
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
+  # decoration_theme_variant: None
 
 #scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -152,8 +152,8 @@ draw_bold_text_with_bright_colors: true
 
 # Neon
 colors:
-  name: Neon
   author: ""
+  name: Neon
   primary:
     background: "#171717"
     foreground: "#f8f8f8"
@@ -162,16 +162,16 @@ colors:
     cursor: "#f8f8f8"
   normal:
     black: "#171717"
-    red: "#d81765"
+    red: "#dd5555"
     green: "#97d01a"
     yellow: "#ffa800"
     blue: "#16b1fb"
-    magenta: "#ff5491"
+    magenta: "#ff54cc"
     cyan: "#0fdcb6"
     white: "#ebebeb"
   bright:
     black: "#38252c"
-    red: "#ff0000"
+    red: "#ff5555"
     green: "#76b639"
     yellow: "#e1a126"
     blue: "#289cd5"

@@ -6,5 +6,5 @@
 # If the file is executable, it is executed and the result is pasted in the app you presently are.
 # Otherwise content of file is pasted in the app you presently are.
 
-EMOJIS=${HOME}/dotfiles/snippets/assets/emojis
+EMOJIS=${HOME}/dotfiles/snippets/assets/emojis_v2
 /usr/bin/rofi -dmenu -p 'emojis' -i -input $EMOJIS | cut -d" " -f1

@@ -76,7 +76,7 @@ export EDITOR="nvim"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux)
+plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux task)
 ZSH_COLORIZE_STYLE="monokai"
 
 source $ZSH/oh-my-zsh.sh
@@ -143,6 +143,7 @@ alias a="source env/bin/activate"
 alias main="cd $HOME/alma/main/ && a"
 alias say="espeak -v us-mbrola-1"
 alias q=t
+alias f="fdfind --type f --hidden --exclude .git"
 
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
@@ -150,7 +151,6 @@ setopt prompt_subst
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
 # prefer ripgrep to grep for fzf
 if type rg &> /dev/null; then
