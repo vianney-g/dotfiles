@@ -190,14 +190,14 @@ M.lspconfig = {
       "floating diagnostic",
     },
 
-    ["[d"] = {
+    ["<leader>eR"] = {
       function()
         vim.diagnostic.goto_prev()
       end,
       "goto prev",
     },
 
-    ["]d"] = {
+    ["<leader>er"] = {
       function()
         vim.diagnostic.goto_next()
       end,
@@ -249,7 +249,7 @@ M.nvimtree = {
     ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
+    ["<leader>ee"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
   },
 }
 
@@ -261,6 +261,7 @@ M.telescope = {
     ["<leader>s"] = { "<cmd> Telescope find_files <CR>", "find files" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
     ["<leader>tg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>tG"] = { "<cmd> Telescope grep_string <CR>", "grep current word" },
     ["<leader>b"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
     ["<leader>S"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },

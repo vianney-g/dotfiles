@@ -20,8 +20,10 @@ local sources = {
 
   -- python
   b.formatting.black,
+  b.formatting.isort,
 }
 
+-- autoformat on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   debug = true,

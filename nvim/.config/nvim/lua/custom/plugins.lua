@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,11 +25,14 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     opts = overrides.treesitter,
   },
 
@@ -38,15 +41,14 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- Install a plugin
+  -- Copilot
   {
-    "max397574/better-escape.nvim",
+    "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
+    opts = overrides.copilot,
   },
 
+  --
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

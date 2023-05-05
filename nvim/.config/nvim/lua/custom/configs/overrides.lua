@@ -21,6 +21,30 @@ M.treesitter = {
     --   "python"
     -- },
   },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>o"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>O"] = "@parameter.inner",
+      },
+    },
+    move = {
+      enable = false,
+    },
+  },
 }
 
 M.mason = {
@@ -59,6 +83,15 @@ M.nvimtree = {
       show = {
         git = true,
       },
+    },
+  },
+}
+
+M.copilot = {
+  suggestion = {
+    auto_trigger = true,
+    keymap = {
+      accept = "<C-space>",
     },
   },
 }
