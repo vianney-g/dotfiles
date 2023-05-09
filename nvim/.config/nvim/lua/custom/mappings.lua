@@ -3,9 +3,12 @@ local M = {}
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>n"] = { "<cmd>bnext<CR>", "next buffer" },
-    ["<leader>a"] = { "<cmd>bprevious<CR>", "previous buffer" },
+    -- recenter while moving around
+    ["n"] = { "nzzzv", "repeat the latest / or ?", opts = { nowait = true } },
+    ["N"] = { "Nzzzv", "repeat the latest / or ? in opposite direction", opts = { nowait = true } },
+    ["<C-d>"] = { "<C-d>zz", "Scroll window downward in the buffer", opts = { nowait = true } },
+    ["<C-u>"] = { "<C-u>zz", "Scroll window upward in the buffer", opts = { nowait = true } },
+    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
 }
 

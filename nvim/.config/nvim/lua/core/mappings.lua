@@ -177,9 +177,7 @@ M.lspconfig = {
     },
 
     ["<leader>u"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
+      "<cmd> Telescope lsp_references <CR>",
       "lsp references",
     },
 

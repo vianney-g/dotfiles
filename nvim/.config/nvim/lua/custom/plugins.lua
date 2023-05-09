@@ -32,6 +32,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
+      "nvim-treesitter/nvim-treesitter-context",
     },
     opts = overrides.treesitter,
   },
@@ -48,6 +49,22 @@ local plugins = {
     opts = overrides.copilot,
   },
 
+  -- markdown
+  {
+    "iamcco/markdown-preview.nvim",
+    event = "BufRead",
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+
+  -- git
+  {
+    "dinhhuy258/git.nvim",
+    config = function()
+      require("git").setup()
+    end,
+  },
   --
   -- To make a plugin not be loaded
   -- {

@@ -21,6 +21,9 @@ local sources = {
   -- python
   b.formatting.black,
   b.formatting.isort,
+
+  -- elm
+  b.formatting.elm_format,
 }
 
 -- autoformat on save
