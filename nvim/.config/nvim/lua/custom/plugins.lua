@@ -60,9 +60,22 @@ local plugins = {
 
   -- git
   {
-    "dinhhuy258/git.nvim",
-    config = function()
-      require("git").setup()
+    "tpope/vim-fugitive",
+    ft = { "gitcommit", "diff" },
+    init = function()
+      -- load vim-fugitive only when a git file is opened
+      vim.api.nvim_create_autocmd({ "BufRead" }, {
+        group = vim.api.nvim_create_augroup("FugitiveLazyLoad", { clear = true }),
+        callback = function()
+          vim.fn.system("git -C " .. '"' .. vim.fn.expand "%:p:h" .. '"' .. " rev-parse")
+          if vim.v.shell_error == 0 then
+            vim.api.nvim_del_augroup_by_name "FugitiveLazyLoad"
+            vim.schedule(function()
+              require("lazy").load { plugins = { "vim-fugitive" } }
+            end)
+          end
+        end,
+      })
     end,
   },
   --
