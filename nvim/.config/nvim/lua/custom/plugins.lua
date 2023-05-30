@@ -78,6 +78,15 @@ local plugins = {
       })
     end,
   },
+
+  -- edit files tree like a normal byffer
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    init = function()
+      require("oil").setup()
+    end,
+  },
   --
   -- To make a plugin not be loaded
   -- {

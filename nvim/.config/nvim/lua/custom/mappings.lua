@@ -13,6 +13,8 @@ M.general = {
     -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<tab>"] = { "<cmd>bn<CR>", "Next buffer", opts = { nowait = true } },
     ["<S-tab>"] = { "<cmd>bp<CR>", "Previous buffer", opts = { nowait = true } },
+    -- fileedition
+    ["-"] = { "<cmd>Oil --float<CR>", "Open current dir in editable buffer" },
   },
 }
 
