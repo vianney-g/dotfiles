@@ -171,7 +171,7 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
-pfetch
+# pfetch
 # chafa Images/Papiers\ peints/`/bin/ls Images/Papiers\ peints | shuf | head -1`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
