@@ -26,10 +26,20 @@ M.treesitter = {
       enable = true,
       lookahead = true,
       keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["af"] = { query = "@function.outer", desc = "Select function scope" },
+        ["if"] = { query = "@function.inner", desc = "Select inner function" },
+        ["ac"] = { query = "@class.outer", desc = "Select class scope" },
+        ["ic"] = { query = "@class.inner", desc = "Select inner class" },
+        ["al"] = { query = "@loop.outer", desc = "Select loop scope" },
+        ["il"] = { query = "@loop.inner", desc = "Select inner loop" },
+        ["iib"] = { query = "@block.inner", desc = "Select block scope" },
+        ["aab"] = { query = "@block.outer", desc = "Select inner block" },
+        ["iic"] = { query = "@comment.inner", desc = "select comment scope" },
+        ["aac"] = { query = "@comment.outer", desc = "select inner comment" },
+        ["iii"] = { query = "@conditional.inner", desc = "select conditional scope" },
+        ["aai"] = { query = "@conditional.outer", desc = "select inner conditional" },
+        ["iis"] = { query = "@statement.inner", desc = "select statement scope" },
+        ["aas"] = { query = "@statement.outer", desc = "select inner statement" },
       },
     },
     swap = {
@@ -91,7 +101,7 @@ M.copilot = {
   suggestion = {
     auto_trigger = true,
     keymap = {
-      accept = "<C-space>",
+      accept = "<C-f>",
     },
   },
 }

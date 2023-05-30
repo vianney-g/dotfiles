@@ -24,6 +24,9 @@ local sources = {
 
   -- elm
   b.formatting.elm_format,
+
+  -- go
+  b.formatting.gofmt,
 }
 
 -- autoformat on save
