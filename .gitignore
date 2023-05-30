@@ -2,6 +2,7 @@ snippets/personal*
 bin/bin/postman
 bin/bin/openapi*
 bin/bin/arduino*
+bin/bin/stripe
 ssh*
 bin/bin/poetry
 bin/bin/elm
