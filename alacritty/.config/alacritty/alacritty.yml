@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 8
-    y: 5
+    x: 2
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -110,18 +110,18 @@ window:
 # Font configuration
 font:
   normal:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
 
   bold:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Italic
 
   bold_italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
   # Point size
