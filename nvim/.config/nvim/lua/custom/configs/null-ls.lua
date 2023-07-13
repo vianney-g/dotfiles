@@ -20,13 +20,16 @@ local sources = {
 
   -- python
   b.formatting.black,
-  b.formatting.isort,
+  b.formatting.ruff,
 
   -- elm
   b.formatting.elm_format,
 
   -- go
   b.formatting.gofmt,
+
+  -- haskell
+  b.formatting.fourmolu,
 }
 
 -- autoformat on save

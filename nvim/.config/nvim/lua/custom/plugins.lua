@@ -87,6 +87,23 @@ local plugins = {
       require("oil").setup()
     end,
   },
+
+  -- tmux navigation
+  {
+    "alexghergh/nvim-tmux-navigation",
+    init = function()
+      require("nvim-tmux-navigation").setup {
+        disable_when_zoomed = true,
+        keybindings = {
+          left = "<M-c>",
+          down = "<M-t>",
+          up = "<M-s>",
+          right = "<M-r>",
+          previous = "<M-n>",
+        },
+      }
+    end,
+  },
   --
   -- To make a plugin not be loaded
   -- {

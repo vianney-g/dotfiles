@@ -169,7 +169,9 @@ local default_plugins = {
       {
         "windwp/nvim-autopairs",
         opts = {
-          fast_wrap = {},
+          fast_wrap = {
+            map = "<C-s>",
+          },
           disable_filetype = { "TelescopePrompt", "vim" },
         },
         config = function(_, opts)
