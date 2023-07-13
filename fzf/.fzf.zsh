@@ -11,3 +11,5 @@ fi
 # Key bindings
 # ------------
 source "/home/vianney/.fzf/shell/key-bindings.zsh"
+# reset ALT-c as it used by tmux
+bindkey -r "^[c"
