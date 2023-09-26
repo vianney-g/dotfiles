@@ -99,6 +99,7 @@ M.nvimtree = {
 
 M.copilot = {
   suggestion = {
+    enable = false,
     auto_trigger = true,
     keymap = {
       accept = "<C-f>",

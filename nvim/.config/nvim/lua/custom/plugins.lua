@@ -45,7 +45,7 @@ local plugins = {
   -- Copilot
   {
     "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
+    cmd = "Copilot",
     opts = overrides.copilot,
   },
 
