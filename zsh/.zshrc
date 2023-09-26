@@ -22,6 +22,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER=`whoami`
 FZF_BASE="$HOME/.fzf"
 export EDITOR="nvim"
+export MANPAGER="nvim --appimage-extract-and-run +Man!"
 # export TERM="tmux-256color"
 
 # Set list of themes to pick from when loading at random
@@ -184,3 +185,8 @@ function prco() {
 
 eval "$(op completion zsh)"; compdef _op op
 eval "$(zoxide init zsh)"
+
+[ -f "/home/vianney/.ghcup/env" ] && source "/home/vianney/.ghcup/env" # ghcup-env
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k/.p10k.zsh.
+[[ ! -f ~/dotfiles/p10k/.p10k.zsh ]] || source ~/dotfiles/p10k/.p10k.zsh
