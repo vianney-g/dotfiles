@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.90
+  opacity: 0.95
 
   # Startup Mode (changes require restart)
   #
@@ -155,8 +155,8 @@ colors:
   author: ""
   name: Neon
   primary:
-    background: "#171717"
-    foreground: "#f8f8f8"
+    background: "#232326"
+    foreground: "#a7aab0"
   cursor:
     text: "#171717"
     cursor: "#f8f8f8"
