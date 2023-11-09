@@ -1,5 +1,4 @@
-spell
-ftplugin
-coc-settings.json
+tags
+test.sh
 .luarc.json
-lazy-lock.json
+nvim
