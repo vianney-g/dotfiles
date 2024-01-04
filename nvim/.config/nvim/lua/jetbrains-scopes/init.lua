@@ -66,7 +66,7 @@ local function search_in_scope(scope)
 		find_command[#find_command + 1] = pattern
 	end
 	pickers.new({}, {
-		prompt_title = "Jetbrains Scope",
+		prompt_title = scope .. " files",
 		finder = finders.new_oneshot_job(find_command, {}),
 		sorter = telescope_conf.generic_sorter({}),
 	}):find()
