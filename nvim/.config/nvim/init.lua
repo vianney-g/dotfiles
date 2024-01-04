@@ -77,6 +77,18 @@ require('lazy').setup({
     end,
   },
 
+  -- second vim legend after Tim Pope, the Primeagen.
+  -- (sry for disapointment, TJ)
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("refactoring").setup({})
+    end,
+  },
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -96,6 +108,12 @@ require('lazy').setup({
     },
   },
 
+  {
+    'dnlhc/glance.nvim',
+    config = function()
+      require("glance").setup()
+    end
+  },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -223,6 +241,31 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  {
+    -- tests runner
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-python",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      -- neotest setup
+      require("neotest").setup({
+        adapters = {
+          require("neotest-python")({
+            runner = "pytest",
+          }),
+        },
+      })
+    end,
+    opts = {
+      ["neotest-python"] = {
+        runner = "pytest"
+      }
+    }
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -285,6 +328,7 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set('n', '\\', "<cmd>nohl<cr>", { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -320,6 +364,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
   group = highlight_group,
   pattern = '*',
+})
+
+-- consider Jinja as htmldjango as it is not supported by nvim-treesitter
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  callback = function()
+    vim.bo.filetype = 'htmldjango'
+  end,
+  group = highlight_group,
+  pattern = { '*.jinja', '*.jinja2' },
 })
 
 -- [[ Configure Telescope ]]
@@ -375,6 +428,16 @@ end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
+local function fugitive_toggle()
+  local fugitive_buf_no = vim.fn.bufnr('^fugitive:')
+  local buf_win_id = vim.fn.bufwinid(fugitive_buf_no)
+  if fugitive_buf_no >= 0 and buf_win_id >= 0 then
+    print('closing fugitive window')
+    vim.api.nvim_win_close(buf_win_id, false)
+  else
+    vim.cmd(":G")
+  end
+end
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').oldfiles, { desc = '[ ] Find recently opened files' })
 vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = 'Find existing [B]uffers' })
@@ -386,22 +449,24 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>Gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>s', require('telescope.builtin').find_files, { desc = '[S]earch Files' })
 vim.keymap.set('n', '<leader>th', require('telescope.builtin').help_tags, { desc = 'Search [H]elp' })
-vim.keymap.set('n', '<leader>tw', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
+vim.keymap.set('n', '<leader>tG', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
 vim.keymap.set('n', '<leader>tg', require('telescope.builtin').live_grep, { desc = 'Search by [G]rep' })
-vim.keymap.set('n', '<leader>tG', ':LiveGrepGitRoot<cr>', { desc = 'Search by [G]rep on Git Root' })
+vim.keymap.set('n', '<leader>tw', ':LiveGrepGitRoot<cr>', { desc = 'Search by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>td', require('telescope.builtin').diagnostics, { desc = 'Search [D]iagnostics' })
 vim.keymap.set('n', '<leader>tr', require('telescope.builtin').resume, { desc = 'Search [R]esume' })
 
+vim.keymap.set('n', '<leader>g', fugitive_toggle, { desc = "[G]it status" })
+vim.keymap.set('n', '<leader>Gb', "<cmd>Git blame<cr>", { desc = "[G]it [B]lame" })
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'elm' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -482,21 +547,29 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>rr', function() require("refactoring").select_refactor({}) end, "[RR]efactor")
+
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+  nmap('gD', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition (buffer)')
+  nmap('gd', '<cmd>Glance definitions<cr>', '[G]oto [D]efinition (floating)')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>u', require('telescope.builtin').lsp_references, 'Goto References ([U]sages)')
-  nmap('<leader>é', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-  nmap('<leader>É', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>U', require('telescope.builtin').lsp_references, 'Goto References ([U]sages, telescope)')
+  nmap('<leader>u', '<cmd>Glance references<cr>', 'Goto References ([U]sages, floating)')
+  nmap('<leader>É', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+  nmap('<leader>é', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
+  -- switch , and ;
+  nmap(',', ';')
+  nmap(';', ',')
+
   -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  -- nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
   nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
   nmap('<leader>wl', function()
@@ -512,7 +585,7 @@ end
 -- document existing key chains
 require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>G'] = { name = '[G]it', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Search', _ = 'which_key_ignore' },
@@ -535,10 +608,12 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  tsserver = {},
+  ruff_lsp = {},
+  elmls = {},
+  html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
 
   lua_ls = {
     Lua = {
@@ -548,8 +623,6 @@ local servers = {
   },
 }
 
--- Setup neovim lua configuration
-require('neodev').setup()
 
 -- better theme variant
 require("onedark").setup {
@@ -631,6 +704,12 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+
+-- Setup neovim lua configuration
+require("neodev").setup({
+  library = { plugings = { "neotest" }, types = true },
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
