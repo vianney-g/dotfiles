@@ -207,6 +207,13 @@ require('lazy').setup({
         show_end = false,
       },
     },
+    {
+      'vianney-g/jetbrains-scopes.nvim',
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+      }
+    }
   },
 
   -- "gc" to comment visual regions/lines
@@ -711,7 +718,8 @@ require("neodev").setup({
   library = { plugings = { "neotest" }, types = true },
 })
 
+require("jetbrains-scopes")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
-require("jetbrains-scopes").setup()
+vim.keymap.set('n', '<leader>jp', ':JBSPick<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>js', ':JBSSearch<CR>', { noremap = true, silent = true })
