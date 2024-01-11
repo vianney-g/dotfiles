@@ -28,8 +28,9 @@ vim.keymap.set('n', '<leader>ee', vim.diagnostic.open_float, { desc = 'Open floa
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- open oil file explorer
-vim.keymap.set("n", "-", "<cmd>Oi --float<cr>", { desc = "Open parent directory" })
+vim.keymap.set("n", "-", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
 
+-- telescope bindings
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').oldfiles, { desc = '[ ] Find recently opened files' })
 vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = 'Find existing [B]uffers' })
@@ -51,10 +52,8 @@ vim.keymap.set('n', '<leader>td', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>tr', require('telescope.builtin').resume, { desc = 'Search [R]esume' })
 
 local function fugitive_toggle()
-  local fugitive_buf_no = vim.fn.bufnr('^fugitive:')
-  local buf_win_id = vim.fn.bufwinid(fugitive_buf_no)
-  if fugitive_buf_no >= 0 and buf_win_id >= 0 then
-    print('closing fugitive window')
+  local buf_win_id = vim.fn.bufwinid('^fugitive:')
+  if buf_win_id >= 0 then
     vim.api.nvim_win_close(buf_win_id, false)
   else
     vim.cmd(":G")
@@ -62,4 +61,3 @@ local function fugitive_toggle()
 end
 vim.keymap.set('n', '<leader>g', fugitive_toggle, { desc = "[G]it status" })
 vim.keymap.set('n', '<leader>Gb', "<cmd>Git blame<cr>", { desc = "[G]it [B]lame" })
---float<cr>", { desc = "Open parent directory" })
