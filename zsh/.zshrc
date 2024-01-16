@@ -77,7 +77,7 @@ export MANPAGER="nvim --appimage-extract-and-run +Man!"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux task)
+plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux task vi-mode)
 ZSH_COLORIZE_STYLE="monokai"
 
 source $ZSH/oh-my-zsh.sh
@@ -190,3 +190,11 @@ eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k/.p10k.zsh.
 [[ ! -f ~/dotfiles/p10k/.p10k.zsh ]] || source ~/dotfiles/p10k/.p10k.zsh
+
+# Last but not least, unable vi mode
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+export VI_MODE_SET_CURSOR=true
+export MODE_INDICATOR="%F{white}+%f"
+export VI_MODE_CURSOR_NORMAL=2
+export VI_MODE_CURSOR_INSERT=6
+bindkey -v
