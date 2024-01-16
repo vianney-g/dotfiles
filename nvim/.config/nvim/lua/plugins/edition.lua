@@ -2,19 +2,29 @@
 
 return {
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  "tpope/vim-sleuth",
 
   -- autopairs
   {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {}
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { "folke/which-key.nvim",  opts = {} },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { "numToStr/Comment.nvim", opts = {} },
+
+  -- ( "(surround)" )
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  },
 
 }
