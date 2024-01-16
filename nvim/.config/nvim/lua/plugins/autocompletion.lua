@@ -9,7 +9,10 @@ return {
         enable = false,
         auto_trigger = true,
         keymap = {
-          accept = "<C-f>",
+          accept = "<C-t>",
+          dismiss = "<C-c>",
+          next = "<C-n>",
+          prev = "<C-p>",
         },
       },
     },
