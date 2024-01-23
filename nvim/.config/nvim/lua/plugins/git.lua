@@ -41,4 +41,12 @@ return {
       end,
     },
   },
+
+  -- open lazygit from within neovim
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
