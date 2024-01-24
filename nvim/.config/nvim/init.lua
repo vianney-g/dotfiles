@@ -257,6 +257,7 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   ruff_lsp = {},
+  ruby_ls = {},
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
 
