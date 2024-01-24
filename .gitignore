@@ -13,3 +13,4 @@ bin/bin/validated_pr_for_release.sh
 nvim/.config/nvim/.luarc.json
 bin/bin/lazygit
 bin/bin/lunatask
+bin/bin/gitmux
