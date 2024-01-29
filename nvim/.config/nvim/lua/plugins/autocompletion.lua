@@ -4,6 +4,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot", -- Exlicitly start Copilot with `:Copilot`
+    event = "InsertEnter",
     opts = {
       suggestion = {
         enable = false,
