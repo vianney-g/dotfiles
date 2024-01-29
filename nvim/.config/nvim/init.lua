@@ -351,6 +351,7 @@ cmp.setup {
   },
 }
 
+require("linear").setup()
 
 
 require("jetbrains-scopes")
