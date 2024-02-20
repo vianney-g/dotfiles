@@ -27,4 +27,15 @@ return {
     end
   },
 
+  -- align text
+  {
+    "junegunn/vim-easy-align",
+    event = "VeryLazy",
+    config = function()
+      vim.cmd([[
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
+      ]])
+    end
+  },
 }
