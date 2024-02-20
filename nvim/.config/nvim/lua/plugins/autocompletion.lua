@@ -6,6 +6,9 @@ return {
     cmd = "Copilot", -- Exlicitly start Copilot with `:Copilot`
     event = "InsertEnter",
     opts = {
+      filetypes = {
+        markdown = true,
+      },
       suggestion = {
         enable = false,
         auto_trigger = true,
