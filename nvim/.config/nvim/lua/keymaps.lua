@@ -51,6 +51,10 @@ vim.keymap.set('n', '<leader>tw', ':LiveGrepGitRoot<cr>', { desc = 'Search by [G
 vim.keymap.set('n', '<leader>td', require('telescope.builtin').diagnostics, { desc = 'Search [D]iagnostics' })
 vim.keymap.set('n', '<leader>tr', require('telescope.builtin').resume, { desc = 'Search [R]esume' })
 
+vim.keymap.set('n', '<leader>tn', "<cmd>ObsidianSearch<cr>", { desc = 'Search [N]otes' })
+vim.keymap.set('n', '<leader>Nn', "<cmd>ObsidianNew<cr>", { desc = 'New [N]ote' })
+vim.keymap.set('n', '<leader>Nt', "<cmd>ObsidianToday<cr>", { desc = '[T]oday [N]ote' })
+
 local function fugitive_toggle()
   local buf_win_id = vim.fn.bufwinid('^fugitive:')
   if buf_win_id >= 0 then
