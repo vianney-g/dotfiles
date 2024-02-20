@@ -260,7 +260,7 @@ local servers = {
   ruby_ls = {},
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
-
+  cucumber_language_server = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
