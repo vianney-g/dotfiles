@@ -38,3 +38,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- set conceallevel=1 to allow some characters to be replaced with conceal
+-- Useful for markdown, but might slow down some files
+vim.o.conceallevel = 1
