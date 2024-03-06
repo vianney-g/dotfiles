@@ -199,11 +199,17 @@ local on_attach = function(_, bufnr)
   nmap('gD', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition (buffer)')
   nmap('gd', '<cmd>Glance definitions<cr>', '[G]oto [D]efinition (floating)')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>U', require('telescope.builtin').lsp_references, 'Goto References ([U]sages, telescope)')
-  nmap('<leader>u', '<cmd>Glance references<cr>', 'Goto References ([U]sages, floating)')
+  nmap('<leader>u', require('telescope.builtin').lsp_references, 'Goto References ([U]sages, telescope)')
+  nmap('<leader>U', '<cmd>Glance references<cr>', 'Goto References ([U]sages, floating)')
   nmap('<leader>É', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
   nmap('<leader>é', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('<leader>wS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace dynamic [S]ymbols')
+
+  nmap("<leader>ws", function()
+    vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
+      require("telescope.builtin").lsp_workspace_symbols({ query = query })
+    end)
+  end, "[W]orkspace [S]ymbols")
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -260,7 +266,9 @@ local servers = {
   ruby_ls = {},
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
-  cucumber_language_server = {},
+  cucumber_language_server = {
+    version = '1.4.0',
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
