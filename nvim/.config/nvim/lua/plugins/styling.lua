@@ -43,4 +43,11 @@ return {
       require("glance").setup()
     end
   },
+  {
+    -- Colorize hex colors in code (and other color codes)
+    'NvChad/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup({ user_default_options = { AARRGGBB = true } })
+    end,
+  },
 }
