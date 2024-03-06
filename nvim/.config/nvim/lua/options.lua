@@ -42,3 +42,9 @@ vim.o.termguicolors = true
 -- set conceallevel=1 to allow some characters to be replaced with conceal
 -- Useful for markdown, but might slow down some files
 vim.o.conceallevel = 1
+
+-- Display tabs, trailing spaces and unbreaable spaces
+vim.o.list = true
+
+-- Change `list` characters
+vim.o.listchars = 'tab:» ,trail:·,nbsp:,precedes:<,extends:>'
