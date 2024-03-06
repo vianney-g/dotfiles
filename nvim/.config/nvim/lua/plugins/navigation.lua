@@ -35,7 +35,25 @@ return {
           return vim.fn.executable 'make' == 1
         end,
       },
+      {
+        "nvim-telescope/telescope-ui-select.nvim",
+        config = function()
+          require('telescope').setup({
+            extensions = {
+              ["ui-select"] = {
+                require("telescope.themes").get_dropdown {
+                  winblend = 10,
+                  border = true,
+                  previewer = false,
+                },
+              }
+            }
+          })
+          require('telescope').load_extension('ui-select')
+        end,
+      },
     },
+
   },
 
   {
@@ -46,6 +64,10 @@ return {
     },
     build = ':TSUpdate',
   },
+  -- Display the current context of the cursor
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+  }
 
 
 }
