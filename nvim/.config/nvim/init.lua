@@ -278,17 +278,6 @@ local servers = {
 }
 
 
--- better theme variant
-require("onedark").setup {
-  style = "darker",
-  code_style = {
-    keywords = "bold",
-    functions = "italic,bold",
-  }
-}
-require("onedark").load()
-
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)

@@ -4,7 +4,15 @@ return {
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      local onedark = require 'onedark'
+      onedark.setup {
+        style = 'warmer',
+        code_style = {
+          keywords = "bold",
+          functions = "italic,bold",
+        },
+      }
+      onedark.load()
     end,
   },
 
@@ -16,8 +24,10 @@ return {
       options = {
         icons_enabled = true,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        -- component_separators = '|',
+        -- section_separators = '',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
       },
     },
   },
