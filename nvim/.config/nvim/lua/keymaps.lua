@@ -63,5 +63,9 @@ local function fugitive_toggle()
     vim.cmd(":G")
   end
 end
+
 vim.keymap.set('n', '<leader>g', fugitive_toggle, { desc = "[G]it status" })
-vim.keymap.set('n', '<leader>Gb', "<cmd>Git blame<cr>", { desc = "[G]it [B]lame" })
+vim.api.nvim_create_user_command("Gb", "Git blame", { nargs = 0 })
+
+-- :W as alias for :w
+vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
