@@ -150,8 +150,6 @@ export RIPGREP_CONFIG_PATH=$HOME/.rg
 
 setopt prompt_subst
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # prefer ripgrep to grep for fzf
 if type rg &> /dev/null; then
