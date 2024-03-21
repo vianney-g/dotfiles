@@ -121,10 +121,9 @@ vim.defer_fn(function()
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<c-space>',
-        node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
+        init_selection = '<C-s>',
+        node_incremental = '<C-s>',
+        node_decremental = '<C-t>',
       },
     },
     textobjects = {
@@ -139,26 +138,36 @@ vim.defer_fn(function()
           ['if'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
+          ['ab'] = '@block.outer',
+          ['ib'] = '@block.inner',
         },
       },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+          [']f'] = '@function.outer',
+          [']c'] = '@class.outer',
+          [']a'] = '@parameter.outer',
+          [']b'] = '@block.outer',
         },
         goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
+          [']F'] = '@function.outer',
+          [']C'] = '@class.outer',
+          [']A'] = '@parameter.outer',
+          [']B'] = '@block.outer',
         },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+          ['[f'] = '@function.outer',
+          ['[c'] = '@class.outer',
+          ['[a'] = '@parameter.outer',
+          ['[b'] = '@block.outer',
         },
         goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
+          ['[F'] = '@function.outer',
+          ['[C'] = '@class.outer',
+          ['[A'] = '@parameter.outer',
+          ['[B'] = '@block.outer',
         },
       },
       swap = {
