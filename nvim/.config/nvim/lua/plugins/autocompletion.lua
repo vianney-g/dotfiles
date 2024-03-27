@@ -1,5 +1,10 @@
 -- All stuff related autocompletion
 return {
+  -- a basic one for vim config autocompletion
+  {
+    "folke/neodev.nvim",
+    opts = {}
+  },
   -- Copilot
   {
     "zbirenbaum/copilot.lua",

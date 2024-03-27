@@ -1,10 +1,5 @@
 --
 return {
-	-- a basic one for vim config autocompletion
-	{
-		"folke/neodev.nvim",
-		opts = {}
-	},
 	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins"
 	-- require 'kickstart.plugins.debug',
 
