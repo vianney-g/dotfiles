@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DATA=`gpaste-client --raw --zero | /usr/bin/rofi -dmenu -sep '\x00' -p 'clip' -eh 3`
+# DATA=`gpaste-client --raw --zero | /usr/bin/wofi --dmenu -p 'clip'`
 
 printf "$DATA" | xsel -p -i 
 printf "$DATA" | xsel -b -i 
