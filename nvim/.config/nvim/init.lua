@@ -220,8 +220,6 @@ local on_attach = function(_, bufnr)
     end)
   end, "[W]orkspace [S]ymbols")
 
-  -- See `:help K` for why this keymap
-  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- switch , and ;
@@ -269,10 +267,10 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   pyright = {},
+  sqls = {},
   -- rust_analyzer = {},
   tsserver = {},
   ruff_lsp = {},
-  ruby_ls = {},
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
   cucumber_language_server = {
