@@ -20,6 +20,13 @@ config.font_size = 10.0
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
 
+config.window_padding = {
+	left = 4,
+	right = 4,
+	top = 1,
+	bottom = 0,
+}
+
 config.keys = {
 	{
 		key = "h",
