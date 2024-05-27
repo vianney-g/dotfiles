@@ -21,6 +21,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER=`whoami`
 FZF_BASE="$HOME/.fzf"
+export BAT_THEME="Catppuccin Mocha"
 export EDITOR="nvim"
 export MANPAGER="nvim --appimage-extract-and-run +Man!"
 # export TERM="tmux-256color"
@@ -139,12 +140,13 @@ alias v=view
 alias -g JSON="| python -m json.tool"
 alias ls="exa --icons"
 alias tree="exa --tree --icons"
-alias less=batcat
+alias less=bat
 alias a="source env/bin/activate"
 alias main="cd $HOME/alma/main/ && task local:shell"
 alias say="espeak -v us-mbrola-1"
 alias q=t
 alias f="fdfind --type f --hidden --exclude .git"
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
