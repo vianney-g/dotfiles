@@ -9,6 +9,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -23,6 +24,7 @@ DEFAULT_USER=`whoami`
 FZF_BASE="$HOME/.fzf"
 export BAT_THEME="Catppuccin Mocha"
 export EDITOR="nvim"
+export TERMINAL="wezterm"
 export MANPAGER="nvim --appimage-extract-and-run +Man!"
 # export TERM="tmux-256color"
 
