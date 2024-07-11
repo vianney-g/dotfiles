@@ -13,12 +13,12 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'Catppuccin Mocha (Gogh)'
 config.font = wezterm.font "JetBrainsMono Nerd Font"
-config.window_background_opacity = 0.75
-config.font_size = 10.0
+config.window_background_opacity = 1
+config.font_size = 12.0
 config.enable_tab_bar = false
-config.window_decorations = "NONE"
+config.audible_bell = "Disabled"
 
 config.window_padding = {
 	left = 4,
