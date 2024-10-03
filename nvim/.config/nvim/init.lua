@@ -269,7 +269,7 @@ local servers = {
   pyright = {},
   sqls = {},
   -- rust_analyzer = {},
-  tsserver = {},
+  ts_ls = {},
   ruff_lsp = {},
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
