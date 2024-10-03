@@ -104,4 +104,10 @@ return {
       require('colorizer').setup({ user_default_options = { AARRGGBB = true } })
     end,
   },
+  {
+    -- Highlight and fancy indicators for TODO, FIXME, etc. in code
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  }
 }
