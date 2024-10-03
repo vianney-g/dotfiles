@@ -67,7 +67,13 @@ return {
   -- Display the current context of the cursor
   {
     "nvim-treesitter/nvim-treesitter-context",
-  }
+  },
+  {
+    -- Well, let's give a try to famous primeagen's harpoon
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 
 
 }

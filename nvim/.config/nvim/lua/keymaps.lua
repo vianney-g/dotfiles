@@ -69,3 +69,22 @@ vim.api.nvim_create_user_command("Gb", "Git blame", { nargs = 0 })
 
 -- :W as alias for :w
 vim.api.nvim_create_user_command("W", "w", { nargs = 0 })
+
+-- harpoon keymaps
+-- see `:help harpoon`
+-- I can use `h` as a leader key for Harpoon as I do not use it for left navigation (bépo layout)
+local harpoon = require("harpoon")
+harpoon.setup()
+
+vim.keymap.set("n", "ha", function() harpoon:list():add() end)
+vim.keymap.set("n", "hd", function() harpoon:list():remove() end)
+vim.keymap.set("n", "hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set("n", "ht", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "hs", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "hr", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "hn", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "hg", function() harpoon:list():prev() end)
+vim.keymap.set("n", "hf", function() harpoon:list():next() end)
