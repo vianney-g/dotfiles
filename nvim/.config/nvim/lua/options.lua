@@ -5,6 +5,7 @@
 -- Set highlight on search
 vim.o.hlsearch = true
 
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -25,6 +26,9 @@ vim.o.undofile = true
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+
+-- Preview substitute in preview window
+vim.o.inccommand = 'split'
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'

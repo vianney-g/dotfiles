@@ -30,27 +30,7 @@ require('lazy').setup("plugins", {})
 
 require("options")
 require("keymaps")
-
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
--- consider Jinja as htmldjango as it is not supported by nvim-treesitter
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  callback = function()
-    vim.bo.filetype = 'htmldjango'
-  end,
-  group = highlight_group,
-  pattern = { '*.jinja', '*.jinja2' },
-})
+require("autocmds")
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
