@@ -5,6 +5,15 @@ return {
     'stevearc/oil.nvim',
     opts = {
       skip_confirm_for_simple_edits = true,
+      float = {
+        border = "solid",
+        title_pos = "center",
+        padding = 10,
+        win_options = {
+          winblend = 0,
+
+        },
+      },
     },
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
