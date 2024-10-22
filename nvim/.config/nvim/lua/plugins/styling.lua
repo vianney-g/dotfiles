@@ -1,6 +1,6 @@
 return {
   {
-    'chriskempson/base16-vim',
+    'RRethy/base16-nvim',
     priority = 1000,
     name = "base16 theme",
     config = function()
@@ -36,9 +36,11 @@ return {
     main = 'ibl',
     opts = {
       indent = {
-        highlight = { "CursorColumn", "Whitespace" }
+        char = '▏',
       },
+      enabled = true,
       scope = {
+        char = '▍',
         enabled = true,
         show_start = false,
         show_end = false,

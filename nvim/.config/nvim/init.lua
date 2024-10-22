@@ -250,7 +250,8 @@ local servers = {
   sqls = {},
   -- rust_analyzer = {},
   ts_ls = {},
-  ruff_lsp = {},
+  -- ruff_lsp = {},
+  ruff = {},
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
   cucumber_language_server = {

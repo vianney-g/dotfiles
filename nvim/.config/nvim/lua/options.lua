@@ -55,3 +55,6 @@ vim.o.listchars = 'tab:» ,trail:·,nbsp:,precedes:<,extends:>'
 
 -- Hide command line if inactive
 vim.o.cmdheight = 0
+
+-- single status line
+vim.o.laststatus = 3
