@@ -11,11 +11,18 @@
 
 exec --no-startup-id "xrandr --output DP-3 --auto"
 exec --no-startup-id "xrandr --output eDP-1 --auto"
+
+# clipboard
 exec --no-startup-id clipit
+
+# Screenshot
 exec --no-startup-id flameshot
+
 # activate numlock
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
 exec "setxkbmap fr -variant bepo"
+
+# Readable modifier key names.
 set $meta Mod4
 set $alt Mod1
 set $hyper Mod4+Mod1+control+shift
@@ -23,7 +30,8 @@ set $meh Mod1+control+shift
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+# font pango:monospace 8
+font pango:JetBrainsMono Nerd Font 9
 default_border pixel 1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -33,6 +41,9 @@ default_border pixel 1
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
+
+focus_on_window_activation focus
+for_window [urgent="latest"] focus
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -61,7 +72,10 @@ floating_modifier $meta
 bindsym $meta+Return exec wezterm
 
 # spawn snippets selector
-bindsym $hyper+e exec --no-startup-id snippets
+bindsym $hyper+comma exec --no-startup-id snippets
+
+# take a screenshot
+bindsym $hyper+s exec --no-startup-id flameshot gui
 
 # kill focused window
 bindsym $hyper+Escape kill
@@ -75,22 +89,22 @@ bindsym $hyper+c exec --no-startup-id diodon
 # A more modern dmenu replacement is rofi:
 bindsym $meta+d exec --no-startup-id "rofi -show run"
 # switch active window with rofi
-bindsym $meta+p exec --no-startup-id "rofi -show window"
+bindsym $meta+l exec --no-startup-id "rofi -show window"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $meta+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $meta+c focus left
-bindsym $meta+t focus down
-bindsym $meta+r focus up
-bindsym $meta+n focus right
+bindsym $meta+u focus left
+bindsym $meta+i focus down
+bindsym $meta+p focus up
+bindsym $meta+e focus right
 
 # move focused window
-bindsym $meta+Shift+c move left
-bindsym $meta+Shift+t move down
-bindsym $meta+Shift+r move up
-bindsym $meta+Shift+n move right
+bindsym $meta+Shift+u move left
+bindsym $meta+Shift+i move down
+bindsym $meta+Shift+p move up
+bindsym $meta+Shift+e move right
 
 # split in horizontal orientation
 bindsym $meta+h split h
@@ -104,7 +118,7 @@ bindsym $meta+y fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $meta+s layout stacking
 bindsym $meta+z layout tabbed
-bindsym $meta+e layout toggle split
+bindsym $meta+t layout toggle split
 
 # toggle tiling / floating
 bindsym $meta+f floating toggle
@@ -119,8 +133,10 @@ bindsym $meta+q focus parent
 #bindsym $meta+d focus child
 
 # switch to workspace
-bindsym $hyper+t workspace next
-bindsym $hyper+s workspace prev
+bindsym $hyper+e workspace next
+bindsym $hyper+p workspace next
+bindsym $hyper+i workspace prev
+bindsym $hyper+u workspace prev
 bindsym $hyper+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
 
 # move focused container to workspace
@@ -132,7 +148,7 @@ bindsym $meta+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $meta+Shift+z restart
 # exit i3 (logs you out of your X session)
-bindsym $meta+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $meta+Shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -159,7 +175,7 @@ mode "resize" {
         bindsym $meta+r mode "default"
 }
 
-bindsym $meta+l mode "resize"
+bindsym $meta+r mode "resize"
 
 mode "lock" {
     bindsym l exec i3lock --ignore-empty-password --tiling --image='/home/vianney/Images/Papiers_peints/1270960.png' 2>/dev/null, mode "default"
@@ -172,4 +188,15 @@ mode "lock" {
 bar {
         status_command i3status
         position top
+        separator_symbol " "
+        tray_output primary
+        tray_padding 5px
+        workspace_min_width 50
+        colors {
+                background #1d1f21
+                separator #00ff00
+                focused_workspace #f0c674 #f0c674 #1d1f21
+                inactive_workspace #282a2e #282a2e #f0c674 
+                urgent_workspace #cc6666 #cc6666 #1d1f21
+        }
 }
