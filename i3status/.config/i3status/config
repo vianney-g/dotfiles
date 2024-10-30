@@ -16,13 +16,13 @@ general {
         markup = "pango"
 }
 
-order += "volume master"
 order += "wireless _first_"
 order += "disk /"
 order += "memory"
 order += "cpu_temperature 0"
-order += "tztime localdate"
+# order += "tztime localdate"
 order += "battery 0"
+order += "volume master"
 order += "tztime localtime"
 # order += "load"
 # order += "cpu_usage"
@@ -58,8 +58,8 @@ memory {
 }
 
 tztime localtime {
-        format = "<span color='#de935f' size='large'> </span> <span bgcolor='#de935f' foreground='#1d1f21'> %time </span>"
-        format_time = "%a %d %b %I:%M"
+        format = "<span color='#f0c674' size='large'> </span> <span bgcolor='#f0c674' foreground='#1d1f21'> <b>%time</b> </span>"
+        format_time = "%A %d %B, %H:%M"
 }
 
 cpu_temperature 0 {
@@ -69,11 +69,11 @@ cpu_temperature 0 {
 
 
 battery 0 {
-        format = "<span color='#f0c674' size='large'>%status</span> <span bgcolor='#f0c674' foreground='#1d1f21'> %percentage </span>"
+        format = "<span color='#de935f' size='large'>%status</span> <span bgcolor='#de935f' foreground='#1d1f21'> %percentage </span>"
         format_down = "No battery"
-        status_chr = "⚡ "
-        status_bat = " "
-        status_unk = "? UNK"
+        status_chr = ""
+        status_bat = ""
+        status_unk = " UNK"
         status_full = "󰂄 FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
