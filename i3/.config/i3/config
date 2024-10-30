@@ -191,7 +191,7 @@ bar {
         separator_symbol " "
         tray_output primary
         tray_padding 5px
-        workspace_min_width 50
+        workspace_min_width 75
         colors {
                 background #1d1f21
                 separator #00ff00
