@@ -59,7 +59,7 @@ memory {
 
 tztime localtime {
         format = "<span color='#de935f' size='large'> </span> <span bgcolor='#de935f' foreground='#1d1f21'> %time </span>"
-        format_time = "%I:%M"
+        format_time = "%a %d %b %I:%M"
 }
 
 cpu_temperature 0 {

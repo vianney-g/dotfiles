@@ -12,9 +12,6 @@
 exec --no-startup-id "xrandr --output DP-3 --auto"
 exec --no-startup-id "xrandr --output eDP-1 --auto"
 
-# clipboard
-exec --no-startup-id clipit
-
 # Screenshot
 exec --no-startup-id flameshot
 
@@ -81,7 +78,8 @@ bindsym $hyper+s exec --no-startup-id flameshot gui
 bindsym $hyper+Escape kill
 
 # start clipboard manager
-bindsym $hyper+c exec --no-startup-id diodon
+# bindsym $hyper+c exec --no-startup-id diodon
+bindsym $hyper+c exec --no-startup-id "rofi-gpaste"
 
 # start dmenu (a program launcher)
 # bindsym $meta+d exec --no-startup-id dmenu_run
@@ -194,7 +192,6 @@ bar {
         workspace_min_width 75
         colors {
                 background #1d1f21
-                separator #00ff00
                 focused_workspace #f0c674 #f0c674 #1d1f21
                 inactive_workspace #282a2e #282a2e #f0c674 
                 urgent_workspace #cc6666 #cc6666 #1d1f21
