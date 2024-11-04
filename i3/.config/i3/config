@@ -108,6 +108,10 @@ bindsym $hyper+i move down
 bindsym $hyper+p move up
 bindsym $hyper+e move right
 
+# move focused container to workspace
+bindsym $meh+t move container to workspace prev workspace prev
+bindsym $meh+s move container to workspace next workspace next
+
 # split in horizontal orientation
 bindsym $meta+h split h
 
@@ -147,12 +151,6 @@ bindsym $meta+Shift+g workspace " Jeu [𝐆]"
 bindsym $meta+Shift+x workspace " Privé [𝐗]"
 bindsym $meta+Shift+s workspace " Social [𝐒]"
 bindsym $meta+Shift+m workspace " Musique [𝐌]"
-
-
-
-# move focused container to workspace
-bindsym $meh+t move container to workspace next workspace next
-bindsym $meh+s move container to workspace prev workspace prev
 
 # reload the configuration file
 bindsym $meta+Shift+j reload
