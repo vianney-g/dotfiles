@@ -28,7 +28,7 @@ set $meh Mod1+control+shift
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
-font pango:JetBrainsMono Nerd Font 9
+font pango:JetBrainsMono Nerd Font 11
 default_border pixel 1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -103,10 +103,10 @@ bindsym $meta+p focus up
 bindsym $meta+e focus right
 
 # move focused window
-bindsym $meta+Shift+u move left
-bindsym $meta+Shift+i move down
-bindsym $meta+Shift+p move up
-bindsym $meta+Shift+e move right
+bindsym $hyper+u move left
+bindsym $hyper+i move down
+bindsym $hyper+p move up
+bindsym $hyper+e move right
 
 # split in horizontal orientation
 bindsym $meta+h split h
@@ -135,11 +135,20 @@ bindsym $meta+q focus parent
 #bindsym $meta+d focus child
 
 # switch to workspace
-bindsym $hyper+e workspace next
-bindsym $hyper+p workspace next
-bindsym $hyper+i workspace prev
-bindsym $hyper+u workspace prev
-bindsym $hyper+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
+bindsym $meta+Shift+u workspace prev
+bindsym $meta+Shift+i workspace prev
+bindsym $meta+Shift+p workspace next
+bindsym $meta+Shift+e workspace next
+bindsym $meta+Shift+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
+
+bindsym $meta+Shift+w workspace " Web [𝐖]"
+bindsym $meta+Shift+c workspace " Code [𝐂]"
+bindsym $meta+Shift+g workspace " Jeu [𝐆]"
+bindsym $meta+Shift+x workspace " Privé [𝐗]"
+bindsym $meta+Shift+s workspace " Social [𝐒]"
+bindsym $meta+Shift+m workspace " Musique [𝐌]"
+
+
 
 # move focused container to workspace
 bindsym $meh+t move container to workspace next workspace next
@@ -150,7 +159,7 @@ bindsym $meta+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $meta+Shift+z restart
 # exit i3 (logs you out of your X session)
-bindsym $meta+Shift+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $meta+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -193,7 +202,7 @@ bar {
         separator_symbol " "
         tray_output primary
         tray_padding 3px
-        workspace_min_width 75
+        workspace_min_width 150
         colors {
                 background #1d1f21
                 focused_workspace #f0c674 #f0c674 #1d1f21
