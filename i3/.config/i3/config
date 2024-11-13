@@ -17,7 +17,12 @@ exec --no-startup-id flameshot
 
 # activate numlock
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
+
+# Set keyboard layout to French Bépo or French Azerty
+# bepo must be set as variant first to avoid a bug with the keymap
+# otherwise, shortcuts with the $meta key won't work
 exec "setxkbmap fr -variant bepo"
+
 
 # Readable modifier key names.
 set $meta Mod4
@@ -109,8 +114,16 @@ bindsym $hyper+p move up
 bindsym $hyper+e move right
 
 # move focused container to workspace
-bindsym $meh+t move container to workspace prev workspace prev
-bindsym $meh+s move container to workspace next workspace next
+bindsym $meh+u move container to workspace prev workspace prev
+bindsym $meh+i move container to workspace prev workspace prev
+bindsym $meh+p move container to workspace next workspace next
+bindsym $meh+e move container to workspace next workspace next
+
+# move focused window to scratchpad
+bindsym $meh+r move scratchpad
+
+#display scratchpad
+bindsym $meh+n scratchpad show
 
 # split in horizontal orientation
 bindsym $meta+h split h
@@ -130,7 +143,7 @@ bindsym $meta+t layout toggle split
 bindsym $meta+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $meta+Shift+f focus mode_toggle
+bindsym $hyper+f focus mode_toggle
 
 # focus the parent container
 bindsym $meta+q focus parent
@@ -145,12 +158,12 @@ bindsym $meta+Shift+p workspace next
 bindsym $meta+Shift+e workspace next
 bindsym $meta+Shift+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
 
-bindsym $meta+Shift+w workspace " Web [𝐖]"
-bindsym $meta+Shift+c workspace " Code [𝐂]"
-bindsym $meta+Shift+g workspace " Jeu [𝐆]"
-bindsym $meta+Shift+x workspace " Privé [𝐗]"
-bindsym $meta+Shift+s workspace " Social [𝐒]"
-bindsym $meta+Shift+m workspace " Musique [𝐌]"
+bindsym $meta+Shift+f workspace "🅵 Web "
+bindsym $meta+Shift+c workspace "🅲 Code "
+bindsym $meta+Shift+g workspace "🅶 Jeu "
+bindsym $meta+Shift+x workspace "🆇 Privé "
+bindsym $meta+Shift+s workspace "🆂 Social "
+bindsym $meta+Shift+m workspace "🅼 Musique "
 
 # reload the configuration file
 bindsym $meta+Shift+j reload
