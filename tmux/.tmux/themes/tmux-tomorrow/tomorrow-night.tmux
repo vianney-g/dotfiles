@@ -52,10 +52,10 @@ set -g mode-style fg="#de935f"
 # status left
 set -g status-left ''
 
-# right side of status bar holds "[host name] (date time)"
+# right side of status bar holds "Session name"
 set -g status-right-length 100
-set -g status-right-style fg=black
-set -g status-right-style bold
+set -g status-right-style bg=white
+set -g status-right-style none
 # set -g status-right '#[bg=#81a2be fg=#2d2d2d] %A %d %B #[fg=#f0c674 bg=default] %k:%M #[reverse]  #S #[default]'
 set -g status-right '#[bg=#f0c674 fg=#2d2d2d]  #S #[default]'
 
