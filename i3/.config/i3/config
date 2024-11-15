@@ -101,6 +101,14 @@ bindsym $meta+l exec --no-startup-id "rofi -show window"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $meta+40 exec --no-startup-id i3-dmenu-desktop
 
+# name some task related workspaces
+set $wsWeb "🅵 Web "
+set $wsCode "🅲 Code "
+set $wsGame "🅶 Jeu "
+set $wsPrivate "🆇 Privé "
+set $wsSocial "🆂 Social "
+set $wsMusic "🅼 Musique "
+
 # change focus
 bindsym $meta+u focus left
 bindsym $meta+i focus down
@@ -118,6 +126,12 @@ bindsym $meh+u move container to workspace prev workspace prev
 bindsym $meh+i move container to workspace prev workspace prev
 bindsym $meh+p move container to workspace next workspace next
 bindsym $meh+e move container to workspace next workspace next
+bindsym $meh+f move container to workspace $wsWeb workspace $wsWeb
+bindsym $meh+c move container to workspace $wsCode workspace $wsCode
+bindsym $meh+g move container to workspace $wsGame workspace $wsGame
+bindsym $meh+x move container to workspace $wsPrivate workspace $wsPrivate
+bindsym $meh+s move container to workspace $wsSocial workspace $wsSocial
+bindsym $meh+m move container to workspace $wsMusic workspace $wsMusic
 
 # move focused window to scratchpad
 bindsym $meh+r move scratchpad
@@ -158,12 +172,12 @@ bindsym $meta+Shift+p workspace next
 bindsym $meta+Shift+e workspace next
 bindsym $meta+Shift+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
 
-bindsym $meta+Shift+f workspace "🅵 Web "
-bindsym $meta+Shift+c workspace "🅲 Code "
-bindsym $meta+Shift+g workspace "🅶 Jeu "
-bindsym $meta+Shift+x workspace "🆇 Privé "
-bindsym $meta+Shift+s workspace "🆂 Social "
-bindsym $meta+Shift+m workspace "🅼 Musique "
+bindsym $meta+Shift+f workspace $wsWeb
+bindsym $meta+Shift+c workspace $wsCode
+bindsym $meta+Shift+g workspace $wsGame
+bindsym $meta+Shift+x workspace $wsPrivate
+bindsym $meta+Shift+s workspace $wsSocial
+bindsym $meta+Shift+m workspace $wsMusic
 
 # reload the configuration file
 bindsym $meta+Shift+j reload
