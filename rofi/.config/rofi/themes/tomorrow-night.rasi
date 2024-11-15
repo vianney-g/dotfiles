@@ -59,6 +59,7 @@ window {
     background-color: @background;
     border:           5;
     padding:          3;
+    font:             "JetBrainsMono Nerd Font 11";
 }
 
 mainbox {
