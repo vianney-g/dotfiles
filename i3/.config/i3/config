@@ -24,7 +24,7 @@ exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/54ssr0ya4mc91.jpg
 # Set keyboard layout to French Bépo or French Azerty
 # bepo must be set as variant first to avoid a bug with the keymap
 # otherwise, shortcuts with the $meta key won't work
-exec "setxkbmap -option 'grp:ctrls_toggle' -layout fr,fr -variant 'bepo_afnor,azerty'"
+exec "setxkbmap -option 'grp:ctrls_toggle' -layout fr,fr -variant 'bepo,azerty'"
 
 
 # Readable modifier key names.
@@ -170,6 +170,11 @@ bindsym $meta+Shift+u workspace prev
 bindsym $meta+Shift+i workspace prev
 bindsym $meta+Shift+p workspace next
 bindsym $meta+Shift+e workspace next
+# or, using the mouse wheel:
+bindsym --whole-window $meta+Shift+button4 workspace prev
+bindsym --whole-window $meta+Shift+button5 workspace next
+
+# Dynamic workspace
 bindsym $meta+Shift+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
 
 bindsym $meta+Shift+f workspace $wsWeb
@@ -248,7 +253,8 @@ bar {
 }
 
 # Some nice colors
-client.focused #f0c674 #f0c674 #1d1f21 #f0c674 #de935f
+client.focused #f0c674 #f0c674 #1d1f21 #f0c674 #f0c674
+client.unfocused #282a2e #282a2e #1d1f21 #282a2e #282a2e
 client.urgent #cc6666 #cc6666 #1d1f21 #cc6666 #cc6666
 client.background #1d1f21
 
