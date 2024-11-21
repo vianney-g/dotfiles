@@ -10,7 +10,6 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
-export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -146,9 +145,20 @@ alias less=bat
 alias a="source env/bin/activate"
 alias main='cd $HOME/alma/main/ && tmux rename-session "The Glorious Main 🦚" && task local:tests:shell'
 alias say="espeak -v us-mbrola-1"
-alias q=t
 alias f="fdfind --type f --hidden --exclude .git"
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias t='(sesh connect \"$(
+  sesh list --icons | fzf-tmux -p 55%,60% \
+    --no-sort --ansi --border-label " sesh " --prompt "⚡  " \
+    --header "  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find" \
+    --bind "tab:down,btab:up" \
+    --bind "ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)" \
+    --bind "ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)" \
+    --bind "ctrl-g:change-prompt(⚙<fe0f>  )+reload(sesh list -c --icons)" \
+    --bind "ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)" \
+    --bind "ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)" \
+    --bind "ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)" \
+)\")'
 
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
