@@ -15,12 +15,10 @@
 
 ## set status bar
 set -g status-style bg=default
-# setw -g window-status-current-style bg="#282a2e"
-setw -g window-status-current-style fg="#81a2be"
 
 ## highlight active window
-setw -g window-style 'bg=#282a2e'
-setw -g window-active-style 'bg=#1d1f21'
+setw -g window-style bg=#1d1f21
+setw -g window-active-style bg=#1d1f21
 setw -g pane-active-border-style ''
 
 ## highlight activity in status bar
@@ -43,7 +41,7 @@ set -g message-command-style bg="#8abeb7"
 set -g message-command-style fg="#000000"
 
 # message bar or "prompt"
-set -g message-style bg="#2d2d2d"
+set -g message-style bg="#1d1f21"
 set -g message-style fg="#cc99cc"
 
 set -g mode-style bg="#1d1f21"
@@ -54,20 +52,19 @@ set -g status-left ''
 
 # right side of status bar holds "Session name"
 set -g status-right-length 100
-set -g status-right-style bg=white
+set -g status-right-style bg=#1d1f21
 set -g status-right-style none
-# set -g status-right '#[bg=#81a2be fg=#2d2d2d] %A %d %B #[fg=#f0c674 bg=default] %k:%M #[reverse]  #S #[default]'
-set -g status-right '#[bg=#f0c674 fg=#2d2d2d]  #S #[default]'
+# set -g status-right '#[bg=#81a2be fg=#1d1f21] %A %d %B #[fg=#f0c674 bg=default] %k:%M #[reverse]  #S #[default]'
+set -g status-right '#[bg=#393939 fg=#1d1f21]#[fg=#c5c8c6]  #S #[fg=#1d1f21]#[bg=#1d1f21]'
 
 # make background window look like white tab
-set-window-option -g window-status-style bg=default
+set-window-option -g window-status-style bg=#1d1f21
 set-window-option -g window-status-style fg=white
-set-window-option -g window-status-style none
-set-window-option -g window-status-format '#[fg=#2d2d2d,bg=#393939]#[fg=#999999,bg=#393939] #W #[fg=#393939,bg=default]#[default]'
+set-window-option -g window-status-format '#[fg=#1d1f21,bg=#393939]#[fg=#999999,bg=#393939] #W #[fg=#393939,bg=#1d1f21]'
 
 # make foreground window look like bold yellow foreground tab
 set-window-option -g window-status-current-style none
-set-window-option -g window-status-current-format '#[fg=#2d2d2d,bg=#f0c674 bright]#[fg=#393939,bg=#f0c674] #W #[fg=#f0c674,bg=default]#[default]'
+set-window-option -g window-status-current-format '#[fg=#1d1f21,bg=#f0c674 bright]#[fg=#393939,bg=#f0c674] #W #[fg=#f0c674,bg=default]#[default]'
 
 # active terminal yellow border, non-active white
 set -g pane-border-style bg=default
