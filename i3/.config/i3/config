@@ -33,6 +33,9 @@ set $alt Mod1
 set $hyper Mod4+Mod1+control+shift
 set $meh Mod1+control+shift
 
+# Reset xrandr settings
+bindsym $meta+Shift+y exec --no-startup-id xrandr --output eDP-1 --auto
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
