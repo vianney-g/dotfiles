@@ -58,3 +58,6 @@ vim.o.cmdheight = 0
 
 -- single status line
 vim.o.laststatus = 3
+
+-- keep some space at the bottom and top of the screen when scrolling
+vim.o.scrolloff = 15
