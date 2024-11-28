@@ -11,7 +11,7 @@
 * {
     /* Theme settings */
     highlight: bold italic;
-    scrollbar: true;
+    scrollbar: false;
 
     /* tomorrow night colors */
     tomorrow-night-bg0:          #1d1f21;
@@ -57,9 +57,9 @@
 
 window {
     background-color: @background;
-    border:           5;
-    padding:          3;
-    font:             "JetBrainsMono Nerd Font 11";
+    border:           5px;
+    padding:          5px;
+    font:             "JetBrainsMono Nerd Font 12";
 }
 
 mainbox {
@@ -68,9 +68,9 @@ mainbox {
 }
 
 message {
-    border:       2px 0 0;
+    border:       0px 0 0;
     border-color: @separatorcolor;
-    padding:      1px;
+    padding:      0px;
 }
 
 textbox {
@@ -79,16 +79,16 @@ textbox {
 }
 
 listview {
-    border:       1px solid 0 0;
-    padding:      1px 0 0;
+    border:       0;
+    padding:      0;
     border-color: @separatorcolor;
-    spacing:      1px;
+    spacing:      0px;
     scrollbar:    @scrollbar;
 }
 
 element {
     border:  0;
-    padding: 2px;
+    padding: 4px;
 }
 
 element.normal.normal {
@@ -152,16 +152,18 @@ mode-switcher {
 inputbar {
     spacing:    0;
     text-color: @normal-foreground;
-    padding:    2px;
+    padding:    10px;
     children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
 }
 
 case-indicator,
+textbox-prompt-sep,
 entry,
 prompt,
 button {
     spacing:    0;
-    text-color: @normal-foreground;
+    text-color: @tomorrow-night-yellow-dark;
+    font:  "JetBrainsMono Nerd Font 18";
 }
 
 button.selected {
@@ -171,10 +173,11 @@ button.selected {
 
 textbox-prompt-sep {
     expand:     false;
-    str:        ":";
+    str:        "";
     text-color: @normal-foreground;
-    margin:     0 0.3em 0 0;
+    margin:     0 8px;
 }
+
 element-text, element-icon {
     background-color: inherit;
     text-color:       inherit;
