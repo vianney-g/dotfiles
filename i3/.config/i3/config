@@ -120,6 +120,7 @@ set $Read "Lecture "
 set $Home "Home "
 set $Help "Aide "
 set $Kanban "Kanban "
+set $Legitchad "Legitchad 🇹🇩"
 set $Task "Tâches "
 set $Log "Log "
 set $Note "Note "
@@ -205,7 +206,7 @@ bindsym $meta+Shift+g workspace $Game
 bindsym $meta+Shift+x workspace $Private
 bindsym $meta+Shift+s workspace $Social
 bindsym $meta+Shift+m workspace $Music
-bindsym $meta+Shift+l exec i3-msg workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Switch to workspace" -i`
+bindsym $meta+Shift+l exec i3-msg workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Switch to workspace" -i`
 # reload the configuration file
 bindsym $meta+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -246,7 +247,7 @@ set $session_mode 🆂 suspend | 🅻 lock | 🆀 exit | 󱊷 cancel
 bindsym $meta+x mode "$session_mode"
 mode "$session_mode" {
     # bindsym l exec i3lock --ignore-empty-password --tiling --image='/home/vianney/Images/Papiers_peints/1270960.png' 2>/dev/null, mode "default"
-    bindsym l exec betterlockscreen -l dim, mode "default"
+    bindsym l exec betterlockscreen --lock dim --off 120 -- --keylayout=0, mode "default"
 
     # just force suspend. i3lock will be called automatically via lock.sh 
     bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
