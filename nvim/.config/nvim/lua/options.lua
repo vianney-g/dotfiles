@@ -53,8 +53,9 @@ vim.o.list = true
 -- Change `list` characters
 vim.o.listchars = 'tab:» ,trail:·,nbsp:,precedes:<,extends:>'
 
--- Hide command line if inactive
-vim.o.cmdheight = 0
+-- Set command line to 1 (this is the default)
+-- 0 will hide the command line when not in use. It is cool but it hides the keystrokes.
+vim.o.cmdheight = 1
 
 -- single status line
 vim.o.laststatus = 3
