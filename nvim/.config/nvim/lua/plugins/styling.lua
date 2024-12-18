@@ -62,7 +62,16 @@ return {
     end,
   },
   {
-    -- Highlight and fancy indicators for TODO, FIXME, etc. in code
+    --[[
+    Highlight and fancy indicators for TODO, FIXME, etc. in code. Default keywords:
+       - TODO,
+       - FIX/FIXME/BUG/FIXIT/ISSUE
+       - HACK
+       - WARN/WARNING/XXX
+       - PERF/OPTIM/PERFORMANCE/OPTIMIZE
+       - NOTE/INFO
+       - TEST/TESTING/PASSED/FAILED
+    --]]
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
