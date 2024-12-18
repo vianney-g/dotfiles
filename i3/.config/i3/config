@@ -19,7 +19,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
 
 # background image (needs feh)
-exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/54ssr0ya4mc91.jpg
+exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/pexels-jplenio-1435075.jpg
 
 # Set keyboard layout to French Bépo or French Azerty
 # bepo must be set as variant first to avoid a bug with the keymap
@@ -252,7 +252,7 @@ mode "$session_mode" {
     # just force suspend. i3lock will be called automatically via lock.sh 
     bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
     # exit i3 (logs you out of your X session)
-    bindsym q exec exit, mode "default"
+    bindsym q exit, mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
