@@ -6,7 +6,7 @@ return {
     opts = {
       skip_confirm_for_simple_edits = true,
       float = {
-        border = "solid",
+        border = "single",
         title_pos = "center",
         padding = 10,
         win_options = {

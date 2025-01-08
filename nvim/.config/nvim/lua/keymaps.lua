@@ -88,3 +88,52 @@ vim.keymap.set("n", "hn", function() harpoon:list():select(4) end)
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "hg", function() harpoon:list():prev() end)
 vim.keymap.set("n", "hf", function() harpoon:list():next() end)
+
+-- NOTE: Remember that lua is a real programming language, and as such it is possible
+-- to define small helper and utility functions so you don't have to repeat yourself
+-- many times.
+--
+-- In this case, we create a function that lets us more easily define mappings specific
+-- for LSP related items. It sets the mode, buffer and description for us each time.
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'LSP: ' .. desc
+  end
+
+  vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+end
+
+nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+nmap('<leader>rr', function() require("refactoring").select_refactor({}) end, "[RR]efactor")
+
+nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+
+nmap('gD', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition (buffer)')
+nmap('gd', '<cmd>Glance definitions<cr>', '[G]oto [D]efinition (floating)')
+nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+nmap('<leader>u', require('telescope.builtin').lsp_references, 'Goto References ([U]sages, telescope)')
+nmap('<leader>U', '<cmd>Glance references<cr>', 'Goto References ([U]sages, floating)')
+nmap('<leader>É', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+nmap('<leader>é', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+nmap('<leader>wS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace dynamic [S]ymbols')
+
+nmap("<leader>ws", function()
+  vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
+    require("telescope.builtin").lsp_workspace_symbols({ query = query })
+  end)
+end, "[W]orkspace [S]ymbols")
+
+nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+-- switch , and ;
+nmap(',', ';')
+nmap(';', ',')
+
+-- Lesser used LSP functionality
+-- nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+nmap('<leader>wl', function()
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end, '[W]orkspace [L]ist Folders')
+
