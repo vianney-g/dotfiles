@@ -9,6 +9,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -197,3 +198,5 @@ eval "$(zoxide init zsh)"
 # export VI_MODE_CURSOR_NORMAL=2
 # export VI_MODE_CURSOR_INSERT=6
 # bindkey -v
+
+. "$HOME/.local/bin/env"
