@@ -78,3 +78,6 @@ SEL=$(gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom | awk '{prin
 
 # Call xrandr
 $(${COMMANDS[$SEL]})
+
+# refresh feh
+feh --bg-fill ~/Images/Papiers_peints/pexels-jplenio-1435075.jpg
