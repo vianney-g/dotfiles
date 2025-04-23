@@ -77,8 +77,10 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
-        -- optionally disable cmdline completions
-        cmdline = {},
+      },
+      -- disable autocompletion on cmdline
+      cmdline = {
+        enabled = false,
       },
 
       -- experimental signature help support
