@@ -79,7 +79,7 @@ floating_modifier $meta
 
 # start a terminal
 # bindsym $meta+Return exec i3-sensible-terminal
-bindsym $meta+Return exec wezterm
+bindsym $meta+Return exec --no-startup-id wezterm
 
 # spawn snippets selector
 bindsym $hyper+comma exec --no-startup-id snippets
