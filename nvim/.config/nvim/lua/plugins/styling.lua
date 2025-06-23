@@ -74,6 +74,17 @@ return {
     --]]
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+      keywords = {
+        GIVEN = { icon = "", color = "info", alt = { "Given" } },
+        WHEN = { icon = "", color = "warning", alt = { "When" } },
+        THEN = { icon = "", color = "hint", alt = { "Then" } },
+      },
+      highlight = {
+        keyword = "wide",
+        after = "fg",
+        pattern = [[<(KEYWORDS)\s*:?]],
+      },
+    },
   }
 }
