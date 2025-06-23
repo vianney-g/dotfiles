@@ -5,12 +5,22 @@ return {
     "folke/neodev.nvim",
     opts = {}
   },
+  -- aider
+  {
+    "joshuavial/aider.nvim",
+    opts = {
+      auto_manage_context = true,
+      default_bindings = true,
+      debug = false,
+    }
+  },
   -- Copilot
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot", -- Exlicitly start Copilot with `:Copilot`
     event = "InsertEnter",
     opts = {
+      copilot_model = "gpt-4o-copilot",
       filetypes = {
         markdown = true,
       },
@@ -26,22 +36,6 @@ return {
       },
     },
   },
-
-  -- {
-  --   'hrsh7th/nvim-cmp',
-  --   dependencies = {
-  --     -- Snippet Engine & its associated nvim-cmp source
-  --     'L3MON4D3/LuaSnip',
-  --     'saadparwaiz1/cmp_luasnip',
-  --
-  --     -- Adds LSP completion capabilities
-  --     'hrsh7th/cmp-nvim-lsp',
-  --
-  --     -- Adds a number of user-friendly snippets
-  --     'rafamadriz/friendly-snippets',
-  --   },
-  -- },
-  --
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
