@@ -106,32 +106,32 @@ bindsym $meta+l exec --no-startup-id "rofi -show window"
 # bindcode $meta+40 exec --no-startup-id i3-dmenu-desktop
 
 # name some task related workspaces
-set $Web "  Web"
-set $Code "  Code"
-set $Game "  Jeu"
-set $Private "  Privé"
-set $Social "  Social"
-set $Music "  Musique"
-set $Misc "  Autre"
-set $Doc "  Doc"
-set $Photo "  Photo"
-set $Video "  Vidéo"
-set $Mail "  Mail"
-set $Read "  Lecture"
-set $Home "  Home"
-set $Help " Aide"
-set $Kanban "  Kanban"
+set $Web " Web"
+set $Code " Code"
+set $Game " Jeu"
+set $Private " Privé"
+set $Social " Social"
+set $Music " Musique"
+set $Misc " Autre"
+set $Doc " Doc"
+set $Photo " Photo"
+set $Video " Vidéo"
+set $Mail " Mail"
+set $Read " Lecture"
+set $Home " Home"
+set $Help "Aide"
+set $Kanban " Kanban"
 set $Legitchad "Légitchad"
-set $Task "  Tâches"
-set $Log "  Log"
-set $Note "  Note"
-set $Project "  Projet"
-set $Search "  Recherche"
-set $Shop "  Shop"
-set $Update "  MàJ"
-set $Urgent "  Urgent"
-set $Videoconf "  Visio"
-set $Vim "  Vim"
+set $Task " Tâches"
+set $Log " Log"
+set $Note " Note"
+set $Project " Projet"
+set $Search " Recherche"
+set $Shop " Shop"
+set $Update " MàJ"
+set $Urgent " Urgent"
+set $Videoconf " Visio"
+set $Vim " Vim"
 
 # change focus
 bindsym $meta+u focus left
@@ -156,6 +156,7 @@ bindsym $meh+g move container to workspace $Game workspace $Game
 bindsym $meh+x move container to workspace $Private workspace $Private
 bindsym $meh+s move container to workspace $Social workspace $Social
 bindsym $meh+m move container to workspace $Music workspace $Music
+bindsym $meh+l exec i3-msg move container to workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Move to workspace" -i`
 
 # move focused window to scratchpad
 bindsym $meh+r move scratchpad
