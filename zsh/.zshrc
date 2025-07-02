@@ -147,7 +147,6 @@ alias a="source .venv/bin/activate"
 alias main='cd $HOME/alma/main/ && tmux rename-session "The Glorious Main 🦚" && task local:tests:shell'
 alias say="espeak -v us-mbrola-1"
 alias f="fdfind --type f --hidden --exclude .git"
-alias wezterm='flatpak run org.wezfurlong.wezterm'
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
 setopt prompt_subst
@@ -200,3 +199,7 @@ eval "$(zoxide init zsh)"
 # bindkey -v
 
 . "$HOME/.local/bin/env"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
