@@ -1,0 +1,3 @@
+#!/bin/bash
+
+flatpak run com.google.Chrome --app=https://app.datadoghq.eu --new-window --class=datadog
