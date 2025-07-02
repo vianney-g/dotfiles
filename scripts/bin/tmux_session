@@ -1,0 +1,24 @@
+#! /usr/bin/env bash
+# Connect to a tmux session from ROFI
+
+set -x
+
+function tmux_sessions() {
+    tmux list-session -F '#S'
+}
+
+TMUX_SESSION=$( (
+    echo new
+    tmux_sessions
+) | rofi -dmenu -p "Select tmux session")
+
+echo "Selected session: ${TMUX_SESSION}"
+
+if [[ x"new" = x"${TMUX_SESSION}" ]]; then
+    wezterm start -- /usr/bin/tmux new-session
+elif [[ -z "${TMUX_SESSION}" ]]; then
+    echo "Cancel"
+else
+    echo "Attaching to session: ${TMUX_SESSION}"
+    wezterm start --always-new-process -- /usr/bin/tmux attach-session -t "${TMUX_SESSION}"
+fi
