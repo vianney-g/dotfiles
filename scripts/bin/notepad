@@ -1,0 +1,3 @@
+#!/bin/sh
+
+i3-msg "[class=notepad] focus" || i3-msg 'exec --no-startup-id wezterm start --class notepad -- tmux new-session -A -s notepad' 

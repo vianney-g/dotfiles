@@ -271,4 +271,5 @@ client.background #1d1f21
 # Always stick some apps to dedicated workspace
 for_window [class="Spotify"] move container to workspace $Music
 for_window [class="Slack"] move container to workspace $Social
+for_window [class="notepad"] floating enable, sticky enable, border pixel 10, resize set 20ppt 20ppt, move position 75ppt 75ppt
 
