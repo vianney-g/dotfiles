@@ -28,7 +28,11 @@ require("options")
 
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
-require('lazy').setup("plugins", {})
+require('lazy').setup("plugins", {
+  opts = {
+    colorscheme = "base16-tomorrow-night",
+  }
+})
 
 require("keymaps")
 require("autocmds")
