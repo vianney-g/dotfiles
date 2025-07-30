@@ -24,7 +24,7 @@ exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/pexels-jplenio-143507
 # Set keyboard layout to French Bépo or French Azerty
 # bepo must be set as variant first to avoid a bug with the keymap
 # otherwise, shortcuts with the $meta key won't work
-exec "setxkbmap -option 'grp:ctrls_toggle' -layout fr,fr -variant 'bepo,azerty'"
+exec "setxkbmap -option 'grp:lctrl_lwin_toggle' -layout fr,fr -variant 'bepo,azerty'"
 
 
 # Readable modifier key names.
@@ -82,17 +82,17 @@ floating_modifier $meta
 bindsym $meta+Return exec --no-startup-id wezterm
 
 # spawn snippets selector
-bindsym $hyper+comma exec --no-startup-id snippets
+bindsym $meta+comma exec --no-startup-id snippets
 
 # take a screenshot
-bindsym $hyper+s exec --no-startup-id flameshot gui
+bindsym $meta+Delete exec --no-startup-id flameshot gui
 
 # kill focused window
-bindsym $hyper+Escape kill
+bindsym $meta+period kill
 
 # start clipboard manager
 # bindsym $hyper+c exec --no-startup-id diodon
-bindsym $hyper+c exec --no-startup-id "rofi-gpaste"
+bindsym $meta+c exec --no-startup-id "rofi-gpaste"
 
 # start dmenu (a program launcher)
 # bindsym $meta+d exec --no-startup-id dmenu_run
@@ -156,7 +156,6 @@ bindsym $meh+g move container to workspace $Game workspace $Game
 bindsym $meh+x move container to workspace $Private workspace $Private
 bindsym $meh+s move container to workspace $Social workspace $Social
 bindsym $meh+m move container to workspace $Music workspace $Music
-bindsym $meh+l exec i3-msg move container to workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Move to workspace" -i`
 
 # move focused window to scratchpad
 bindsym $meh+r move scratchpad
@@ -182,7 +181,7 @@ bindsym $meta+t layout toggle split
 bindsym $meta+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $hyper+f focus mode_toggle
+bindsym $meta+k focus mode_toggle
 
 # focus the parent container
 bindsym $meta+q focus parent
@@ -209,6 +208,7 @@ bindsym $meta+Shift+x workspace $Private
 bindsym $meta+Shift+s workspace $Social
 bindsym $meta+Shift+m workspace $Music
 bindsym $meta+Shift+l exec i3-msg workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Switch to workspace" -i`
+bindsym $meta+Shift+d exec i3-msg move container to workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Move to workspace" -i`
 # reload the configuration file
 bindsym $meta+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -273,3 +273,5 @@ for_window [class="Spotify"] move container to workspace $Music
 for_window [class="Slack"] move container to workspace $Social
 for_window [class="notepad"] floating enable, sticky enable, border pixel 10, resize set 20ppt 20ppt, move position 75ppt 75ppt
 
+# start a notepad
+bindsym $meta+n exec --no-startup-id notepad
