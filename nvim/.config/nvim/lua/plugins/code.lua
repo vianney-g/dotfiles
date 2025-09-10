@@ -10,7 +10,7 @@ local servers = {
   elmls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'jinja', 'jinja2', 'htmldjango' } },
   cucumber_language_server = {
-    version = '1.4.0',
+    version = '1.7.0',
     cmd = { 'cucumber-language-server', '--stdio' },
     cucumber = {
       features = { "ledger/tests/**/*.feature", "tests/alma/**/bdd/*.feature" },
