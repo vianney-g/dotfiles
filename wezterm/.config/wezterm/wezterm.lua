@@ -19,6 +19,7 @@ config.window_background_opacity = 1
 config.font_size = 11.0
 config.enable_tab_bar = false
 config.audible_bell = "Disabled"
+config.window_close_confirmation = "NeverPrompt"
 
 config.window_padding = {
 	left = 4,
