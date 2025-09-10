@@ -62,3 +62,7 @@ vim.o.laststatus = 3
 
 -- keep some space at the bottom and top of the screen when scrolling
 vim.o.scrolloff = 15
+
+-- set tabstop and shiftwidth to 4 spaces
+vim.o.tabstop = 4
+vim.o.shiftwidth = 0 -- use the value of tabstop for shiftwidth

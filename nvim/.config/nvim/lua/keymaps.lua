@@ -125,7 +125,7 @@ end, "[W]orkspace [S]ymbols")
 
 nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
--- switch , and ;
+-- switch , and ; I want it because it is more convenient with a bépo keyboard layout
 nmap(',', ';')
 nmap(';', ',')
 
@@ -136,4 +136,3 @@ nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Fo
 nmap('<leader>wl', function()
   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, '[W]orkspace [L]ist Folders')
-
