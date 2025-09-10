@@ -19,7 +19,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
 
 # background image (needs feh)
-exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/pexels-jplenio-1435075.jpg
+exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/ffrichard_valentine.jpg
 
 # Set keyboard layout to French Bépo or French Azerty
 # bepo must be set as variant first to avoid a bug with the keymap
@@ -134,16 +134,16 @@ set $Videoconf " Visio"
 set $Vim " Vim"
 
 # change focus
-bindsym $meta+u focus left
-bindsym $meta+i focus down
-bindsym $meta+p focus up
-bindsym $meta+e focus right
+bindsym $meta+Left focus left
+bindsym $meta+Down focus down
+bindsym $meta+Up focus up
+bindsym $meta+Right focus right
 
 # move focused window
-bindsym $hyper+u move left
-bindsym $hyper+i move down
-bindsym $hyper+p move up
-bindsym $hyper+e move right
+bindsym $meta+Shift+Left move left
+bindsym $meta+Shift+Down move down
+bindsym $meta+Shift+Up move up
+bindsym $meta+Shift+Right move right
 
 # move focused container to workspace
 bindsym $meh+u move container to workspace prev workspace prev
@@ -245,11 +245,11 @@ bindsym $meta+r mode "resize"
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-set $session_mode 🆂 suspend | 🅻 lock | 🆀 exit | 󱊷 cancel
+set $session_mode S suspend | X lock | Q exit | 󱊷 cancel
 bindsym $meta+x mode "$session_mode"
 mode "$session_mode" {
     # bindsym l exec i3lock --ignore-empty-password --tiling --image='/home/vianney/Images/Papiers_peints/1270960.png' 2>/dev/null, mode "default"
-    bindsym l exec betterlockscreen --lock dim --off 120 -- --keylayout=0, mode "default"
+    bindsym x exec betterlockscreen --lock dim --off 120 -- --keylayout=0, mode "default"
 
     # just force suspend. i3lock will be called automatically via lock.sh 
     bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
