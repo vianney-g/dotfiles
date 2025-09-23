@@ -16,7 +16,8 @@ end
 config.color_scheme = 'Tomorrow (dark) (terminal.sexy)'
 config.font = wezterm.font "JetBrainsMono Nerd Font"
 config.window_background_opacity = 1
-config.font_size = 11.0
+config.font_size = 13.0
+config.line_height = 1.2
 config.enable_tab_bar = false
 config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
