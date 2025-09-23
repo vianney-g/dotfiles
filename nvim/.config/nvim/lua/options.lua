@@ -27,8 +27,8 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Preview substitute in preview window
-vim.o.inccommand = 'split'
+-- Live preview substitute but not in preview window
+vim.o.inccommand = 'nosplit'
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
@@ -60,8 +60,8 @@ vim.o.cmdheight = 1
 -- single status line
 vim.o.laststatus = 3
 
--- keep some space at the bottom and top of the screen when scrolling
-vim.o.scrolloff = 15
+-- Always be at the center of the screen when scrolling
+vim.o.scrolloff = 999
 
 -- set tabstop and shiftwidth to 4 spaces
 vim.o.tabstop = 4
