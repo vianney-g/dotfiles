@@ -108,11 +108,9 @@ nmap('<leader>rr', function() require("refactoring").select_refactor({}) end, "[
 
 nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-nmap('gD', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition (buffer)')
-nmap('gd', '<cmd>Glance definitions<cr>', '[G]oto [D]efinition (floating)')
+nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition (buffer)')
 nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 nmap('<leader>u', require('telescope.builtin').lsp_references, 'Goto References ([U]sages, telescope)')
-nmap('<leader>U', '<cmd>Glance references<cr>', 'Goto References ([U]sages, floating)')
 nmap('<leader>É', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 nmap('<leader>é', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
 nmap('<leader>wS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace dynamic [S]ymbols')

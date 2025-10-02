@@ -76,11 +76,9 @@ return {
   -- Display the current context of the cursor
   {
     "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require('treesitter-context').setup {
-        max_lines = 4, -- How many lines the window should span. Values <= 0 mean no limit.
-      }
-    end
+    opts = {
+      max_lines = 4, -- How many lines the window should span. Values <= 0 mean no limit.
+    }
   },
   {
     -- Well, let's give a try to famous primeagen's harpoon

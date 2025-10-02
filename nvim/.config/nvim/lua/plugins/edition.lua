@@ -12,16 +12,26 @@ return {
   },
 
   -- Useful plugin to show you pending keybinds.
-  { "folke/which-key.nvim", opts = {} },
+  {
+    "folke/which-key.nvim",
+    opts = {},
+    config = function()
+      require("which-key").add {
+        { '<leader>c', group = '[C]ode' },
+        { '<leader>G', group = '[G]it' },
+        { '<leader>h', group = 'More git' },
+        { '<leader>r', group = '[R]ename' },
+        { '<leader>t', group = 'Search' },
+        { '<leader>w', group = '[W]orkspace' },
+      }
+    end
+  },
 
   -- ( "(surround)" )
   {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({})
-    end
   },
 
   -- align text

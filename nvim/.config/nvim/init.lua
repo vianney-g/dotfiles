@@ -170,24 +170,3 @@ vim.defer_fn(function()
     },
   }
 end, 0)
-
--- document existing key chains
-require('which-key').add {
-  { '<leader>c', group = '[C]ode' },
-  { '<leader>G', group = '[G]it' },
-  { '<leader>h', group = 'More git' },
-  { '<leader>r', group = '[R]ename' },
-  { '<leader>t', group = 'Search' },
-  { '<leader>w', group = '[W]orkspace' },
-}
-
-
-
-require("linear").setup()
-
-
-require("jetbrains-scopes")
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-vim.keymap.set('n', '<leader>jp', ':JBSPick<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>js', ':JBSSearch<CR>', { noremap = true, silent = true })

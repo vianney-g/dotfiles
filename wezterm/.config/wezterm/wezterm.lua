@@ -14,13 +14,14 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Tomorrow (dark) (terminal.sexy)'
-config.font = wezterm.font "JetBrainsMono Nerd Font"
+config.font = wezterm.font "JetBrainsMono NF"
 config.window_background_opacity = 1
 config.font_size = 13.0
 config.line_height = 1.2
 config.enable_tab_bar = false
 config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
+config.warn_about_missing_glyphs = false
 
 config.window_padding = {
 	left = 4,
@@ -41,5 +42,27 @@ config.keys = {
 		action = wezterm.action.IncreaseFontSize,
 	},
 }
+
+-- This is for nvim Zen mode support
+wezterm.on('user-var-changed', function(window, pane, name, value)
+	local overrides = window:get_config_overrides() or {}
+	if name == "ZEN_MODE" then
+		local incremental = value:find("+")
+		local number_value = tonumber(value)
+		if incremental ~= nil then
+			while (number_value > 0) do
+				window:perform_action(wezterm.action.IncreaseFontSize, pane)
+				number_value = number_value - 1
+			end
+		elseif number_value < 0 then
+			window:perform_action(wezterm.action.ResetFontSize, pane)
+			overrides.font_size = nil
+		else
+			overrides.font_size = number_value
+		end
+	end
+	window:set_config_overrides(overrides)
+end)
+
 -- and finally, return the configuration to wezterm
 return config
