@@ -103,15 +103,6 @@ source $HOME/.arduino-comp.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 
 function csv {
 	local delimiter file usage
@@ -136,7 +127,16 @@ function csv {
 
 [ -f .aliases ] && source .aliases
 
-alias gcf!="ga . && gc! --no-edit && gpf"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
 alias e=$EDITOR
 alias v=view
 alias -g JSON="| python -m json.tool"
@@ -144,9 +144,10 @@ alias ls="exa --icons"
 alias tree="exa --tree --icons"
 alias less=bat
 alias a="source .venv/bin/activate"
-alias main='cd $HOME/alma/main/ && tmux rename-session "The Glorious Main 🦚" && task local:tests:shell'
 alias say="espeak -v us-mbrola-1"
-alias f="fdfind --type f --hidden --exclude .git"
+alias fd="fdfind --type f --hidden --exclude .git"
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
 setopt prompt_subst
