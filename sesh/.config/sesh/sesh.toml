@@ -1,14 +1,12 @@
 [[session]]
 name = "main (Alma)"
 path = "~/alma/main/"
-startup_command = "git pull"
-preview_command = "echo 'Main Alma directory'"
-
+preview_command = "cat ~/.config/sesh/almamain.txt"
 
 [[session]]
 name = "nvim config"
 path = "~/dotfiles/nvim/.config/nvim/"
-startup_command = "nvim"
+startup_command = "nvim init.lua"
 
 [[session]]
 name = "tmux config"
