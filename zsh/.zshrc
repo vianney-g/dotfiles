@@ -58,17 +58,6 @@ function csv {
 
 [ -f .aliases ] && source .aliases
 
-alias e=$EDITOR
-alias v=view
-alias -g JSON="| python -m json.tool"
-alias ls="exa --icons"
-alias tree="exa --tree --icons"
-alias less=bat
-alias a="source .venv/bin/activate"
-alias say="espeak -v us-mbrola-1"
-alias fd="fdfind --type f --hidden --exclude .git"
-alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
-
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
 setopt prompt_subst

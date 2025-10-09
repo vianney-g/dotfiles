@@ -6,18 +6,20 @@ $kubernetes\
 $directory\
 $git_branch\
 $git_state\
-$git_status"""
+$git_status\
+$character"""
 
-# Inserts a blank line between shell prompts
-add_newline = true
 
-# Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+right_format = """
+$python\
+$elm\
+$nodejs\
+$rust"""
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
 
 [git_branch]
 style = "bold green"
@@ -36,3 +38,10 @@ modified = ' '
 staged = '[+$count](green)'
 renamed = '襁 '
 deleted = ' '
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+
+[nodejs]
+disabled = true
