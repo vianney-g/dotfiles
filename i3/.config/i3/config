@@ -85,7 +85,7 @@ bindsym $meta+Return exec --no-startup-id wezterm
 bindsym $meta+comma exec --no-startup-id snippets
 
 # take a screenshot
-bindsym $meta+Delete exec --no-startup-id flameshot gui
+bindsym Print exec --no-startup-id flameshot gui
 
 # kill focused window
 bindsym $meta+period kill
