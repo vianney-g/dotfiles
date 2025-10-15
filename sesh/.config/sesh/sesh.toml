@@ -7,10 +7,11 @@ preview_command = "cat ~/.config/sesh/almamain.txt"
 name = "nvim config"
 path = "~/dotfiles/nvim/.config/nvim/"
 startup_command = "nvim init.lua"
+preview_command = "cat ~/.config/sesh/nvim.txt"
 
 [[session]]
 name = "tmux config"
 path = "~/dotfiles/tmux/"
 startup_command = "nvim .tmux.conf"
-preview_command = "bat --color=always ~/dotfiles/tmux/.tmux.conf"
+preview_command = "bat -f -p ~/dotfiles/tmux/.tmux.conf"
 
