@@ -9,6 +9,7 @@ alias a="source .venv/bin/activate"
 alias say="espeak -v us-mbrola-1"
 alias fd="fdfind --type f --hidden --exclude .git"
 alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+alias _='sudo'
 
 # Git aliases
 alias g='git'
@@ -35,6 +36,8 @@ alias gp='git push'
 alias gpf='git push --force-with-lease --force-if-includes'
 alias gpu='git push upstream'
 alias grb='git rebase'
+alias grbm='git rebase main'
+alias grbM='git rebase master'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbi='git rebase --interactive'
@@ -43,3 +46,14 @@ alias gstl='git stash list'
 alias gstp='git stash pop'
 alias gsts='git stash show --patch'
 alias gst='git status'
+
+# Docker aliases
+alias d='docker'
+alias dps='docker ps'
+
+# cd aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~'

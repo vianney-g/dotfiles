@@ -12,28 +12,6 @@ export BAT_THEME="Catppuccin Mocha"
 export EDITOR="nvim"
 export TERMINAL="wezterm"
 export MANPAGER="nvim --appimage-extract-and-run +Man!"
-# export TERM="tmux-256color"
-
-plugins=(git virtualenv fzf kubectl colorize python rust shrink-path fzf-tab tmux task)
-ZSH_COLORIZE_STYLE="monokai"
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-	# if [[ -n $SSH_CONNECTION ]]; then
-		#   export EDITOR='vim'
-		# else
-			#   export EDITOR='mvim'
-			# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 
 function csv {
 	local delimiter file usage
@@ -56,7 +34,7 @@ function csv {
 	cat $1 | sed -e 's/$delimiter$delimiter/$delimiter $delimiter/g' | column -s$delimiter -t | less -#5 -N -S
 }
 
-[ -f .aliases ] && source .aliases
+[ -f $HOME/.aliases ] && source $HOME/.aliases
 
 export RIPGREP_CONFIG_PATH=$HOME/.rg
 
@@ -102,5 +80,22 @@ eval "$(zoxide init zsh)"
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
+bindkey -e
+
+autoload -U history-search-end
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey "$terminfo[kcuu1]" up-line-or-beginning-search # Up
+bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
+
 
 eval "$(starship init zsh)"
