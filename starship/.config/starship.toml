@@ -2,7 +2,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$kubernetes\
 $directory\
 $git_branch\
 $git_state\
@@ -17,7 +16,7 @@ $nodejs\
 $rust"""
 
 [directory]
-style = "bold blue"
+style = "bold underline bright-yellow"
 
 [character]
 success_symbol = '[󰜴](bold green) '
@@ -25,28 +24,28 @@ error_symbol = '[](bold red) '
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
-style = "italic bold green"
+style = "italic bold blue"
 
 
 [git_status]
 format = '[$all_status$ahead_behind]($style) '
-style = "bold purple"
-conflicted = '🏳'
+style = "bold bright-green"
+conflicted = ''
 up_to_date = ''
-untracked = ' '
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
-stashed = ' '
-modified = ' '
-staged = '[+$count](green)'
-renamed = '襁 '
-deleted = ' '
+untracked = ''
+ahead = ' ${count}'
+diverged = ' ${ahead_count}  ${behind_count}'
+behind = ' ${count}'
+stashed = ' '
+modified = ' '
+staged = '[ $count](green)'
+renamed = ' '
+deleted = '[ ](red) '
 
 [python]
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 symbol = " "
-style = "bold cyan"
+style = "italic cyan"
 
 [nodejs]
 disabled = true
