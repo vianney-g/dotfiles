@@ -11,9 +11,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
-config.color_scheme = 'Tomorrow Night'
+config.color_scheme = 'AyuDark (Gogh)'
 config.font = wezterm.font "JetBrainsMono NF"
 config.window_background_opacity = 1
 config.font_size = 13.0
