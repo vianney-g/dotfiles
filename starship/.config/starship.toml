@@ -16,7 +16,7 @@ $nodejs\
 $rust"""
 
 [directory]
-style = "bold underline bright-yellow"
+style = "bold green"
 
 [character]
 success_symbol = '[󰜴](bold green) '
