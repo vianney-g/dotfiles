@@ -4,7 +4,7 @@ return {
     priority = 1000,
     name = "base16 theme",
     config = function()
-      vim.cmd.colorscheme('base16-tomorrow-night')
+      vim.cmd.colorscheme('base16-ayu-dark')
     end,
   },
 

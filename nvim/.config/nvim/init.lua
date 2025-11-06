@@ -30,7 +30,7 @@ require("options")
 --    as they will be available in your neovim runtime.
 require('lazy').setup("plugins", {
   opts = {
-    colorscheme = "base16-tomorrow-night",
+    colorscheme = "base16-ayu-dark",
   }
 })
 
