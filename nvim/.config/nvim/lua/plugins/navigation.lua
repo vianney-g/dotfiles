@@ -11,7 +11,6 @@ return {
         padding = 10,
         win_options = {
           winblend = 0,
-
         },
       },
     },
