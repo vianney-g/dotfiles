@@ -36,12 +36,6 @@ set $meh Mod1+control+shift
 # Reset xrandr settings
 bindsym $meta+Shift+y exec --no-startup-id xrandr --output eDP-1 --auto
 
-# Font for window titles.
-# font pango:monospace 8
-font pango:JetBrainsMono Nerd Font 11
-default_border pixel 3
-hide_edge_borders smart
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -98,41 +92,15 @@ bindsym $meta+c exec --no-startup-id "rofi-gpaste"
 # bindsym $meta+d exec --no-startup-id dmenu_run
 
 # A more modern dmenu replacement is rofi:
-bindsym $meta+d exec --no-startup-id "rofi -show run"
+bindsym $meta+space exec --no-startup-id "rofi -show run"
 # switch active window with rofi
-bindsym $meta+l exec --no-startup-id "rofi -show window"
+bindsym $meta+Shift+space exec --no-startup-id "rofi -show window"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $meta+40 exec --no-startup-id i3-dmenu-desktop
 
 # name some task related workspaces
-set $Web " Web"
-set $Code " Code"
-set $Game " Jeu"
-set $Private " Privé"
-set $Social " Social"
-set $Music " Musique"
-set $Misc " Autre"
-set $Doc " Doc"
-set $Photo " Photo"
-set $Video " Vidéo"
-set $Mail " Mail"
-set $Read " Lecture"
-set $Home " Home"
-set $Help "Aide"
-set $Kanban " Kanban"
-set $Legitchad "Légitchad"
-set $Task " Tâches"
-set $Log " Log"
-set $Note " Note"
-set $Project " Projet"
-set $Search " Recherche"
-set $Shop " Shop"
-set $Update " MàJ"
-set $Urgent " Urgent"
-set $Videoconf " Visio"
-set $Vim " Vim"
-
+set $Workspaces " Web  Code  Jeu  Privé  Social  Musique  Autre  Doc  Photo  Vidéo  Mail  Lecture  Home Aide  Kanban Légitchad  Tâches  Log  Note  Projet  Recherche  Shop  MàJ  Urgent  Visio  Vim"
 # change focus
 bindsym $meta+Left focus left
 bindsym $meta+Down focus down
@@ -150,24 +118,15 @@ bindsym $meh+u move container to workspace prev workspace prev
 bindsym $meh+i move container to workspace prev workspace prev
 bindsym $meh+p move container to workspace next workspace next
 bindsym $meh+e move container to workspace next workspace next
-bindsym $meh+f move container to workspace $Web workspace $Web
-bindsym $meh+c move container to workspace $Code workspace $Code
-bindsym $meh+g move container to workspace $Game workspace $Game
-bindsym $meh+x move container to workspace $Private workspace $Private
-bindsym $meh+s move container to workspace $Social workspace $Social
-bindsym $meh+m move container to workspace $Music workspace $Music
 
 # move focused window to scratchpad
-bindsym $meh+r move scratchpad
+bindsym $meta+Shift+e move scratchpad
 
 #display scratchpad
-bindsym $meh+n scratchpad show
+bindsym $meta+e scratchpad show
 
-# split in horizontal orientation
-bindsym $meta+h split h
-
-# split in vertical orientation
-bindsym $meta+v split v
+# toggle split in vertical/horizontal orientation
+bindsym $meta+v layout toggle split
 
 # enter fullscreen mode for the focused container
 bindsym $meta+y fullscreen toggle
@@ -190,10 +149,8 @@ bindsym $meta+q focus parent
 #bindsym $meta+d focus child
 
 # switch to workspace
-bindsym $meta+Shift+u workspace prev
-bindsym $meta+Shift+i workspace prev
-bindsym $meta+Shift+p workspace next
-bindsym $meta+Shift+e workspace next
+bindsym $meta+i workspace prev
+bindsym $meta+p workspace next
 # or, using the mouse wheel:
 bindsym --whole-window $meta+Shift+button4 workspace prev
 bindsym --whole-window $meta+Shift+button5 workspace next
@@ -201,21 +158,17 @@ bindsym --whole-window $meta+Shift+button5 workspace next
 # Dynamic workspace
 bindsym $meta+Shift+n exec i3-msg workspace `i3-input | grep command | cut -c 11-30`
 
-bindsym $meta+Shift+f workspace $Web
-bindsym $meta+Shift+c workspace $Code
-bindsym $meta+Shift+g workspace $Game
-bindsym $meta+Shift+x workspace $Private
-bindsym $meta+Shift+s workspace $Social
-bindsym $meta+Shift+m workspace $Music
-bindsym $meta+Shift+l exec i3-msg workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Switch to workspace" -i`
-bindsym $meta+Shift+d exec i3-msg move container to workspace `echo "$Web\n$Code\n$Game\n$Private\n$Social\n$Music\n$Misc\n$Doc\n$Photo\n$Video\n$Mail\n$Read\n$Home\n$Help\n$Kanban\n$Legitchad\n$Task\n$Log\n$Note\n$Project\n$Search\n$Shop\n$Update\n$Urgent\n$Videoconf\n$Vim" | rofi -dmenu -p "Move to workspace" -i`
+bindsym $meta+l exec i3-msg workspace `echo "$Workspaces" | rofi -sep ' ' -p "Switch to workspace" -i -dmenu`
+bindsym $meta+d exec i3-msg move container to workspace `echo "$Workspaces" | rofi -sep ' ' -p "Move to workspace" -dmenu  -i`
 # reload the configuration file
 bindsym $meta+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $meta+Shift+z restart
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+set $resize vim keys to shrink/grow/height/width
+bindsym $meta+r mode "$resize"
+mode "$resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -239,7 +192,6 @@ mode "resize" {
         bindsym $meta+r mode "default"
 }
 
-bindsym $meta+r mode "resize"
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -262,16 +214,24 @@ mode "$session_mode" {
 
 exec_always --no-startup-id ~/.config/i3/polybar.sh
 
-# Some nice colors (theme tomorrow-night)
-client.focused #f0c674 #f0c674 #1d1f21 #f0c674 #f0c674
-client.unfocused #282a2e #282a2e #1d1f21 #282a2e #282a2e
-client.urgent #cc6666 #cc6666 #1d1f21 #cc6666 #cc6666
-client.background #1d1f21
-
 # Always stick some apps to dedicated workspace
-for_window [class="Spotify"] move container to workspace $Music
-for_window [class="Slack"] move container to workspace $Social
+for_window [class="Spotify"] move container to workspace " Musique"
+for_window [class="Slack"] move container to workspace " Social"
 for_window [class="notepad"] floating enable, sticky enable, border pixel 10, resize set 20ppt 20ppt, move position 75ppt 75ppt
 
 # start a notepad
 bindsym $meta+n exec --no-startup-id notepad
+
+# THEME AND APPEARANCE
+
+font pango:JetBrainsMono Nerd Font 11
+default_border pixel 3
+hide_edge_borders smart
+# gaps outer 10px
+
+# Some nice colors (theme tomorrow-night)
+client.focused #e6b450 #e6b450 #101521 #e6b450 #e6b450
+client.unfocused #282a2e #282a2e #101521 #282a2e #282a2e
+client.urgent #cc6666 #cc6666 #101521 #cc6666 #cc6666
+client.background #101521
+
