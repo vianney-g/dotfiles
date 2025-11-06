@@ -1,3 +1,3 @@
 #!/bin/bash
 
-i3-msg "[class=mistral] focus" || wezterm start --class mistral -- /home/vianney/.cargo/bin/aichat -s
+i3-msg "[class=mistral] focus" || flatpak run com.google.Chrome --app=https://chat.mistral.ai --new-window --class=mistral
