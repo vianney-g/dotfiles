@@ -1,3 +1,5 @@
 nvim/.config/nvim/.luarc.json
+tmux/.tmux/plugins
+mcp
 snippets/personal*
 ssh*
