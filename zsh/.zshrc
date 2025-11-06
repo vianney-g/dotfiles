@@ -62,7 +62,6 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 function prco() {
 	# checkout pr
@@ -71,11 +70,6 @@ function prco() {
 
 eval "$(op completion zsh)"; compdef _op op
 eval "$(zoxide init zsh)"
-
-[ -f "/home/vianney/.ghcup/env" ] && source "/home/vianney/.ghcup/env" # ghcup-env
-
-
-. "$HOME/.local/bin/env"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
