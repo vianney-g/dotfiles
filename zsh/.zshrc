@@ -5,13 +5,15 @@ compinit -i
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=/opt/nvim-linux-x86_64/bin:$PATH
 
 DEFAULT_USER=`whoami`
 FZF_BASE="$HOME/.fzf"
 export BAT_THEME="Catppuccin Mocha"
 export EDITOR="nvim"
 export TERMINAL="wezterm"
-export MANPAGER="nvim --appimage-extract-and-run +Man!"
+export MANPAGER="nvim +Man!"
 
 function csv {
 	local delimiter file usage
@@ -93,3 +95,7 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
 
 
 eval "$(starship init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
