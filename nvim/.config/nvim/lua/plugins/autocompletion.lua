@@ -20,7 +20,7 @@ return {
     cmd = "Copilot", -- Exlicitly start Copilot with `:Copilot`
     event = "InsertEnter",
     opts = {
-      copilot_model = "gpt-4o-copilot",
+      -- copilot_model = "gpt-4o-copilot",
       filetypes = {
         markdown = true,
       },
