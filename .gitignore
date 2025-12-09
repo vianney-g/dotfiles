@@ -3,3 +3,4 @@ tmux/.tmux/plugins
 mcp
 snippets/personal*
 ssh*
+.claude
