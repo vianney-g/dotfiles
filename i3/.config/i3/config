@@ -35,6 +35,9 @@ set $alt Mod1
 set $hyper Mod4+Mod1+control+shift
 set $meh Mod1+control+shift
 
+# Load base16-atelier-savanna theme
+include /home/vianney/.config/i3/themes/base16-atelier-savanna.config
+
 # Reset xrandr settings
 bindsym $meta+Shift+y exec --no-startup-id xrandr --output eDP-1 --auto
 
@@ -230,9 +233,13 @@ default_border pixel 3
 hide_edge_borders smart
 # gaps outer 10px
 
-# Some nice colors (theme tomorrow-night)
-client.focused #e6b450 #e6b450 #101521 #e6b450 #e6b450
-client.unfocused #282a2e #282a2e #101521 #282a2e #282a2e
-client.urgent #cc6666 #cc6666 #101521 #cc6666 #cc6666
-client.background #101521
+# Base16 Atelier Savanna theme
+# Scheme by Bram de Haan (http://atelierbramdehaan.nl)
+# Property Name         Border  BG      Text    Indicator   Child Border
+client.focused          #87928a #478c90 #171c19 #478c90     #1c9aa0
+client.focused_inactive #232a25 #232a25 #87928a #5f6d64     #232a25
+client.unfocused        #232a25 #171c19 #87928a #232a25     #232a25
+client.urgent           #b16139 #b16139 #171c19 #b16139     #b16139
+client.placeholder      #171c19 #171c19 #87928a #171c19     #171c19
+client.background       #ecf4ee
 

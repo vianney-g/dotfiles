@@ -32,8 +32,10 @@ All visual applications share the **base16-atelier-savanna** color scheme for vi
 - Neovim: `base16-atelier-savanna` theme (via base16-nvim plugin)
 - Wezterm: `Atelier Savanna (base16)` theme
 - Tmux: Ayu dark theme with `@tinted-color 'base16-atelier-savanna'`
+- i3: Base16 Atelier Savanna color palette (window decorations)
+- Polybar: Base16 Atelier Savanna adapted for status bar modules
 
-When modifying themes, update all three locations to maintain consistency.
+When modifying themes, update all locations to maintain consistency.
 
 ### Bépo Keyboard Layout Support
 
@@ -225,7 +227,26 @@ To change the color scheme across all applications:
 1. **Neovim:** Update `lua/plugins/styling.lua` to use different base16 theme
 2. **Tmux:** Modify `set -g @tinted-color` in `.tmux.conf`
 3. **Wezterm:** Update `config.color_scheme` in `wezterm.lua`
-4. **Starship:** Adjust colors in `starship.toml` if needed
+4. **i3 and Polybar:** See dedicated section below
+5. **Starship:** Adjust colors in `starship.toml` if needed
+
+### i3 and Polybar Theming
+
+i3 and Polybar use base16-atelier-savanna for visual consistency:
+- **i3:** Color definitions in `i3/.config/i3/themes/base16-atelier-savanna.config` (reference), applied directly in `config` file
+- **Polybar:** Colors mapped in `[colors]` section of `i3/.config/polybar/config.ini`
+
+**Color mapping:**
+- Focused windows: base0D (blue #478c90)
+- Unfocused windows: base00/base01 (dark grays)
+- Urgent windows: base08 (red-brown #b16139)
+- Primary accent: base0D (blue)
+
+**To change themes:**
+1. Create new theme file in `i3/.config/i3/themes/` with base16 color definitions
+2. Update `client.*` color values in `i3/.config/i3/config` with the new palette
+3. Update Polybar `[colors]` section in `i3/.config/polybar/config.ini` with corresponding colors
+4. Reload: `i3-msg reload` and `~/.config/i3/polybar.sh`
 
 ## Common Development Patterns
 
