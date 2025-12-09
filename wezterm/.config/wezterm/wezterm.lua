@@ -11,7 +11,8 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.color_scheme = 'AyuDark (Gogh)'
+-- config.color_scheme = 'AyuDark (Gogh)'
+config.color_scheme = 'Atelier Savanna (base16)'
 config.font = wezterm.font "JetBrainsMono NF"
 config.window_background_opacity = 1
 config.font_size = 13.0
