@@ -19,12 +19,14 @@ exec --no-startup-id flameshot
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
 
 # background image (needs feh)
-exec --no-startup-id feh --bg-fill ~/Images/Papiers_peints/ffrichard_valentine.jpg
+exec_always feh --bg-scale ~/Images/Papiers_peints/wallpaper3.jpg
 
 # Set keyboard layout to French Bépo or French Azerty
 # bepo must be set as variant first to avoid a bug with the keymap
 # otherwise, shortcuts with the $meta key won't work
-exec "setxkbmap -option 'grp:lctrl_lwin_toggle' -layout fr,fr -variant 'bepo,azerty'"
+exec "setxkbmap -option 'grp:lctrl_rctrl_toggle' -layout fr,fr -variant 'bepo,azerty'"
+# Mouse scrolling direction natural
+exec --no-startup-id synclient VertScrollDelta=-111
 
 
 # Readable modifier key names.
@@ -36,9 +38,6 @@ set $meh Mod1+control+shift
 # Reset xrandr settings
 bindsym $meta+Shift+y exec --no-startup-id xrandr --output eDP-1 --auto
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -100,7 +99,7 @@ bindsym $meta+Shift+space exec --no-startup-id "rofi -show window"
 # bindcode $meta+40 exec --no-startup-id i3-dmenu-desktop
 
 # name some task related workspaces
-set $Workspaces " Web  Code  Jeu  Privé  Social  Musique  Autre  Doc  Photo  Vidéo  Mail  Lecture  Home Aide  Kanban Légitchad  Tâches  Log  Note  Projet  Recherche  Shop  MàJ  Urgent  Visio  Vim"
+set $Workspaces " Web  Code  Jeu  Privé  Social  Musique  Autre  Doc  Photo  Vidéo  Mail  Lecture  Home Aide  Kanban Légitchad  Tâches  Log  Note  Projet  Recherche  Shop  MàJ  Urgent  Visio  Vim"
 # change focus
 bindsym $meta+Left focus left
 bindsym $meta+Down focus down
@@ -127,6 +126,8 @@ bindsym $meta+e scratchpad show
 
 # toggle split in vertical/horizontal orientation
 bindsym $meta+v layout toggle split
+bindsym $meta+h split horizontal
+bindsym $meta+g split vertical
 
 # enter fullscreen mode for the focused container
 bindsym $meta+y fullscreen toggle
@@ -215,7 +216,7 @@ mode "$session_mode" {
 exec_always --no-startup-id ~/.config/i3/polybar.sh
 
 # Always stick some apps to dedicated workspace
-for_window [class="Spotify"] move container to workspace " Musique"
+for_window [class="Spotify"] move container to workspace " Musique"
 for_window [class="Slack"] move container to workspace " Social"
 for_window [class="notepad"] floating enable, sticky enable, border pixel 10, resize set 20ppt 20ppt, move position 75ppt 75ppt
 
