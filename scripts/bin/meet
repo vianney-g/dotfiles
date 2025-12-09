@@ -1,3 +1,3 @@
 #!/bin/bash
 
-flatpak run com.google.Chrome --app=https://meet.google.com --new-window --class=meet
+firefox --new-window https://meet.google.com
