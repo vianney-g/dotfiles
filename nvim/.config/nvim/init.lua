@@ -8,7 +8,7 @@ vim.g.maplocalleader = ' '
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system {
     'git',
     'clone',
@@ -36,19 +36,6 @@ require('lazy').setup("plugins", {
 
 require("keymaps")
 require("autocmds")
-
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')

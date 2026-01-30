@@ -3,7 +3,6 @@
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('n', '\\', "<cmd>nohl<cr>", { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -100,7 +99,7 @@ local nmap = function(keys, func, desc)
     desc = 'LSP: ' .. desc
   end
 
-  vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  vim.keymap.set('n', keys, func, { desc = desc })
 end
 
 nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')

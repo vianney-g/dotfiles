@@ -5,6 +5,8 @@ return {
     name = "base16 theme",
     config = function()
       vim.cmd.colorscheme('base16-atelier-savanna')
+      vim.cmd('highlight Normal guibg=NONE ctermbg=NONE')
+      vim.cmd('highlight NormalNC guibg=NONE ctermbg=NONE')
     end,
   },
 

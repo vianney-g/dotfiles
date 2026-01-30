@@ -5,15 +5,6 @@ return {
     "folke/neodev.nvim",
     opts = {}
   },
-  -- aider
-  {
-    "joshuavial/aider.nvim",
-    opts = {
-      auto_manage_context = true,
-      default_bindings = true,
-      debug = false,
-    }
-  },
   -- Copilot
   {
     "zbirenbaum/copilot.lua",
