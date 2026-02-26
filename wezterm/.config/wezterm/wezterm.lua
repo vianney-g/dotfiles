@@ -23,9 +23,9 @@ config.window_close_confirmation = "NeverPrompt"
 config.warn_about_missing_glyphs = false
 
 config.window_padding = {
-	left = 4,
-	right = 4,
-	top = 1,
+	left = 0,
+	right = 0,
+	top = 0,
 	bottom = 0,
 }
 
@@ -39,6 +39,11 @@ config.keys = {
 		key = "f",
 		mods = "ALT",
 		action = wezterm.action.IncreaseFontSize,
+	},
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = wezterm.action { SendString = "\x1b\r" }
 	},
 }
 
