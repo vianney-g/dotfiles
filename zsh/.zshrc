@@ -51,8 +51,6 @@ if type rg &> /dev/null; then
     export FZF_DEFAULT_OPTS="-m"
 fi
 
-# export ZSH_TMUX_AUTOSTART=true
-# export ZSH_TMUX_DEFAULT_SESSION_NAME=work
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export ZK_NOTEBOOK_DIR="$HOME/notes"
@@ -70,8 +68,10 @@ function prco() {
 	gh pr list --json number,title,headRefName,author --limit 500 | jq -r '.[] | [.number, .title, .author.login, .headRefName] | @tsv' | column -ts $'\t' | fzf | cut -f1 -d" " | xargs gh pr checkout
 }
 
+# Enable completions for various tools
 eval "$(op completion zsh)"; compdef _op op
 eval "$(zoxide init zsh)"
+eval "$(gh completion -s zsh)"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
