@@ -12,19 +12,23 @@
 exec --no-startup-id "xrandr --output DP-3 --auto"
 exec --no-startup-id "xrandr --output eDP-1 --auto"
 
-# Screenshot
+# picom makes X look better with shadows and transparency, but it can cause some performance issues on my hardware.
+# exec --no-startup-id picom -b
+
+# Screenshot service
 exec --no-startup-id flameshot
 
 # activate numlock
 exec --no-startup-id xdotool key --clearmodifiers Num_Lock
 
 # background image (needs feh)
-exec_always feh --bg-scale ~/Images/Papiers_peints/wallpaper3.jpg
+exec --no-startup-id feh --bg-fill -z ~/Images/Papiers_peints/
 
 # Set keyboard layout to French Bépo or French Azerty
 # bepo must be set as variant first to avoid a bug with the keymap
 # otherwise, shortcuts with the $meta key won't work
 exec "setxkbmap -option 'grp:lctrl_rctrl_toggle' -layout fr,fr -variant 'bepo,azerty'"
+
 # Mouse scrolling direction natural
 exec --no-startup-id synclient VertScrollDelta=-111
 
@@ -49,14 +53,9 @@ exec --no-startup-id dex --autostart --environment i3
 focus_on_window_activation focus
 for_window [urgent="latest"] focus
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
 
 # Adjust brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
@@ -102,7 +101,7 @@ bindsym $meta+Shift+space exec --no-startup-id "rofi -show window"
 # bindcode $meta+40 exec --no-startup-id i3-dmenu-desktop
 
 # name some task related workspaces
-set $Workspaces " Web  Code  Jeu  Privé  Social  Musique  Autre  Doc  Photo  Vidéo  Mail  Lecture  Home Aide  Kanban Légitchad  Tâches  Log  Note  Projet  Recherche  Shop  MàJ  Urgent  Visio  Vim"
+set $Workspaces " Web  Code  Jeu  Perso  Social  Musique  Autre  Doc  Photo  Mail  Lecture  Home Aide  Kanban 🇹🇩 Légitchad  Tâches  Log  Note  Projet  Recherche  Shop  MàJ  Urgent  Visio  Vim"
 # change focus
 bindsym $meta+Left focus left
 bindsym $meta+Down focus down
@@ -199,16 +198,17 @@ mode "$resize" {
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --off 120 --show-layout
 
 set $session_mode S suspend | X lock | Q exit | 󱊷 cancel
 bindsym $meta+x mode "$session_mode"
 mode "$session_mode" {
-    # bindsym l exec i3lock --ignore-empty-password --tiling --image='/home/vianney/Images/Papiers_peints/1270960.png' 2>/dev/null, mode "default"
-    bindsym x exec betterlockscreen --lock dim --off 120 -- --keylayout=0, mode "default"
-
     # just force suspend. i3lock will be called automatically via lock.sh 
     bindsym s exec --no-startup-id sleep 1 && xset dpms force suspend , mode "default"
+
+    # bindsym l exec i3lock --ignore-empty-password --tiling --image='/home/vianney/Images/Papiers_peints/1270960.png' 2>/dev/null, mode "default"
+    bindsym x exec betterlockscreen -l --off 120 --show-layout , mode "default"
+
     # exit i3 (logs you out of your X session)
     bindsym q exit, mode "default"
 
@@ -236,7 +236,7 @@ hide_edge_borders smart
 # Base16 Atelier Savanna theme
 # Scheme by Bram de Haan (http://atelierbramdehaan.nl)
 # Property Name         Border  BG      Text    Indicator   Child Border
-client.focused          #87928a #478c90 #171c19 #478c90     #1c9aa0
+client.focused          #87928a #478c90 #171c19 #478c90     #489963
 client.focused_inactive #232a25 #232a25 #87928a #5f6d64     #232a25
 client.unfocused        #232a25 #171c19 #87928a #232a25     #232a25
 client.urgent           #b16139 #b16139 #171c19 #b16139     #b16139
